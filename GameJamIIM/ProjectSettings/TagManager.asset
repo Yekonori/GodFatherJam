@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CheckPoint
+  - death
+  - Trigger
   layers:
   - Default
   - TransparentFX
