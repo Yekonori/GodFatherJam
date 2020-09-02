@@ -7,4 +7,8 @@ public enum eForms
     BASE,
     BOX,
     CAPSULE,
+    BIG,
+    TALL,
+    BALLOON,
+    NAIN,
 }

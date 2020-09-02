@@ -201,4 +201,17 @@ public class PlayerMovement : MonoBehaviour
     }
     
     #endregion
+
+    public void CopyCatPlayerMovement(PlayerMovement copycatPM)
+    {
+        maxSpeed = copycatPM.maxSpeed;
+        linearDrag = copycatPM.linearDrag;
+        gravity = copycatPM.gravity;
+        fallMultiplier = copycatPM.fallMultiplier;
+
+        moveSpeed = copycatPM.moveSpeed;
+
+        jumpSpeed = copycatPM.jumpSpeed;
+        jumpDelay = copycatPM.jumpDelay;
+    }
 }
