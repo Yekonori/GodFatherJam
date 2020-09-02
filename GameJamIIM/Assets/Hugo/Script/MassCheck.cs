@@ -9,7 +9,7 @@ public class MassCheck : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "SpringTrigger")
+        if (collision.gameObject.tag == "Trigger")
         {
             foreach(VerticalPlatform plat in Mecanic)
             {
@@ -23,14 +23,18 @@ public class MassCheck : MonoBehaviour
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-                foreach (VerticalPlatform plat in Mecanic)
-                {
-                    plat.ActiveAutomatic();
-                }
+                
             }
             else
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            }
+        }
+        if (collision.gameObject.tag == "Trigger")
+        {
+            foreach (VerticalPlatform plat in Mecanic)
+            {
+                plat.ActiveAutomatic();
             }
         }
     }
