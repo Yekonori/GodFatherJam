@@ -65,6 +65,20 @@ public class PlayerChangeForm : MonoBehaviour
     {
         PlayerChangeForm newForm = FormsManager.Instance.GetForm(_triggerForm).GetComponent<PlayerChangeForm>();
 
+        {
+            SpriteRenderer headSprite = head.GetComponent<SpriteRenderer>();
+            headSprite.sprite = newForm.head.GetComponent<SpriteRenderer>().sprite;
+
+            head.transform.position = new Vector3(newForm.head.transform.position.x, newForm.head.transform.position.y);
+        }
+
+        {
+            SpriteRenderer bodySprite = body.GetComponent<SpriteRenderer>();
+            bodySprite.sprite = newForm.body.GetComponent<SpriteRenderer>().sprite;
+
+            body.transform.position = new Vector3(newForm.body.transform.position.x, newForm.body.transform.position.y);
+        }
+
         //head.sprite = newForm.head.sprite;
         //body.sprite = newForm.body.sprite;
         //legL.sprite = newForm.legL.sprite;
