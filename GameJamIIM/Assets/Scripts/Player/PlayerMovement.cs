@@ -4,7 +4,6 @@ using UnityEngine;
 
 /** TO DO : Add coyote Time
             Particule Effect
-            Resolve velocity.x 0 on landing
 */
 public class PlayerMovement : MonoBehaviour
 {
