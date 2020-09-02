@@ -19,11 +19,12 @@ public class PlayerRespawn : MonoBehaviour
     
     void Update()
     {
-        Respawn();
+       
     }
     private void Respawn() 
     {
-     transform.position = RespawnPoint;
+        
+        transform.position = RespawnPoint;
       
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,6 +33,14 @@ public class PlayerRespawn : MonoBehaviour
         {
             RespawnPoint = collision.transform.position;
             Destroy(collision.gameObject.GetComponent<BoxCollider2D>());
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "death") 
+        {
+            Respawn();
+        
         }
     }
 
