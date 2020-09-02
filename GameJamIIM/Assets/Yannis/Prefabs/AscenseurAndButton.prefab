@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7372701286797341168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AscenseurAndButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7965449074561987974}
   - component: {fileID: 7965449074561987969}
   - component: {fileID: 7965449074561987972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ascenseur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 7965449076082199225}
   - component: {fileID: 7965449076082199224}
   - component: {fileID: 7965449076082199228}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7965449076225881896}
   - component: {fileID: 7965449076225881897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7965449076290281505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7965449076499533809}
   - component: {fileID: 7965449076499533814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
