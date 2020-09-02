@@ -232,6 +232,6 @@ public class VerticalPlatform : MonoBehaviour
 
     public void ActiveAutomatic()
     {
-        isAutomatique = true;
+        isAutomatique = !isAutomatique;
     }
 }
