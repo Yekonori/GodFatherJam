@@ -41,6 +41,31 @@ public class FormsManager : MonoBehaviour
 
     #endregion
 
+    public GameObject GetForm(eForms forms)
+    {
+        GameObject playerForm = null;
+
+        switch (forms)
+        {
+            case eForms.BASE:
+                playerForm = basicForm;
+                break;
+            case eForms.BIG:
+                playerForm = bigForm;
+                break;
+            case eForms.TALL:
+                break;
+            case eForms.BALLOON:
+                break;
+            case eForms.NAIN:
+                break;
+            default:
+                break;
+        }
+
+        return playerForm;
+    }
+
     public PlayerMovement GetMovementPlayer(eForms forms)
     {
         PlayerMovement playerMovement = null;
@@ -48,10 +73,7 @@ public class FormsManager : MonoBehaviour
         switch (forms)
         {
             case eForms.BASE:
-                break;
-            case eForms.BOX:
-                break;
-            case eForms.CAPSULE:
+                playerMovement = basicForm.GetComponent<PlayerMovement>();
                 break;
             case eForms.BIG:
                 playerMovement = bigForm.GetComponent<PlayerMovement>();
