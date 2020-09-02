@@ -6,15 +6,14 @@ public class PlayerChangeForm : MonoBehaviour
 {
     #region Script Parameters
 
-    [SerializeField] private GameObject squareBody;
-    [SerializeField] private GameObject capsuleBody;
+    [SerializeField] private PlayerMovement pM;
 
     #endregion
 
     #region Fields
 
-    private bool _isTrigger = false;
-    private eForms _triggerForm = eForms.BASE;
+    [SerializeField] private bool _isTrigger = false;
+    [SerializeField] private eForms _triggerForm = eForms.BASE;
 
     #endregion
 
@@ -22,20 +21,20 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.F))
         {
             if (_isTrigger)
             {
-                TriggerForm();
+                CopycatForm();
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("OnTriggerEnter");
 
-        NPCForms otherNPC = other.GetComponent<NPCForms>();
+        NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
         if (otherNPC != null)
         {
@@ -44,11 +43,11 @@ public class PlayerChangeForm : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("OnTriggerExit");
 
-        NPCForms otherNPC = other.GetComponent<NPCForms>();
+        NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
         if (otherNPC != null)
         {
@@ -58,22 +57,13 @@ public class PlayerChangeForm : MonoBehaviour
 
     #endregion
 
-    private void TriggerForm()
+    private void CopycatForm()
     {
-        GameObject bodyForm = transform.GetChild(0).gameObject;
+        PlayerMovement pMForm = FormsManager.Instance.GetMovementPlayer(_triggerForm);
 
-        switch(_triggerForm)
+        if (pMForm != null)
         {
-            case eForms.BASE:
-                break;
-            case eForms.BOX:
-                Destroy(bodyForm);
-                Instantiate(squareBody, transform);
-                break;
-            case eForms.CAPSULE:
-                Destroy(bodyForm);
-                Instantiate(capsuleBody, transform);
-                break;
+            pM.CopyCatPlayerMovement(pMForm);
         }
     }
 }
