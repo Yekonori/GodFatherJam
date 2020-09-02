@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Collision")]
     [SerializeField] bool onGround = false;
-    [SerializeField] float groundLength = 0.6f;
+    [SerializeField] float groundLength = 1f;
     [SerializeField] Vector3 colliderOffset;
     #endregion
 
@@ -97,14 +97,14 @@ public class PlayerMovement : MonoBehaviour
     void JumpCheck()
     {
         bool wasOnGround = onGround;
-        onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
+        onGround = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, Vector2.down, groundLength, groundLayer);
 
         // Land animation
-        if (!wasOnGround && onGround)
-        {
-            StartCoroutine(JumpSqueeze(1.5f, 0.5f, 0.05f));
-        }
-        
+        //if (!wasOnGround && onGround)
+        //{
+        //    StartCoroutine(JumpSqueeze(1.5f, 0.5f, 0.03f));
+        //}
+
 
         // Jump Delay after Input
         if (Input.GetButtonDown("Jump"))
@@ -123,7 +123,8 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jumpSpeed);
         jumpTimer = 0;
         //Squeeze animation 
-        StartCoroutine(JumpSqueeze(0.5f, 0.5f, 0.05f));
+        //StartCoroutine(JumpSqueeze(0.5f, 0.5f, 0.03f));
+        StartCoroutine(JumpAnimation());
     }
 
     #endregion
@@ -171,6 +172,8 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
     }
 
+    /** Coroutine 
+     */
     IEnumerator JumpSqueeze(float xSqueeze, float ySqueeze, float seconds)
     {
         Vector3 originalSize = Vector3.one;
@@ -191,13 +194,25 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    IEnumerator JumpAnimation()
+    {
+        //animator.SetBool("PreJumping", true);
+        //yield return null;
+        animator.SetBool("isJumping", true);
+        yield return null;
+        //animator.SetBool("LandJumping", true);
+        animator.SetBool("isJumping", false);
+    }
+
+
     /**  Raycast Drawing
      * */
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
-        Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
+        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
+        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
     }
     
     #endregion
