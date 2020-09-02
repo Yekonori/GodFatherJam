@@ -23,7 +23,10 @@ public class MassCheck : MonoBehaviour
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
-                
+                foreach (VerticalPlatform plat in Mecanic)
+                {
+                    plat.ActiveAutomatic();
+                }
             }
             else
             {
@@ -32,10 +35,7 @@ public class MassCheck : MonoBehaviour
         }
         if (collision.gameObject.tag == "Trigger")
         {
-            foreach (VerticalPlatform plat in Mecanic)
-            {
-                plat.ActiveAutomatic();
-            }
+            
         }
     }
 }
