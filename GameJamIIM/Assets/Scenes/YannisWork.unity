@@ -685,7 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicForm: {fileID: 8616070218094720952, guid: fdd0912f2a7923541b6524a2dfbeb855,
     type: 3}
-  bigForm: {fileID: 8616070218094720952, guid: 69b6bab27dbfa2845ac6243c0978fb48, type: 3}
+  bigForm: {fileID: 8616070218094720952, guid: 905687ecd1b0bb74eb99634547582040, type: 3}
   tallForm: {fileID: 0}
   balloonForm: {fileID: 0}
   nainForm: {fileID: 0}
@@ -857,6 +857,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pM: {fileID: 0}
+  head: {fileID: 0}
+  body: {fileID: 0}
+  legL: {fileID: 0}
+  legR: {fileID: 0}
+  character: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 0
 --- !u!54 &583470042
@@ -1162,6 +1167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pM: {fileID: 0}
+  head: {fileID: 0}
+  body: {fileID: 0}
+  legL: {fileID: 0}
+  legR: {fileID: 0}
+  character: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 0
 --- !u!54 &900591697
@@ -1454,6 +1464,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pM: {fileID: 1355627977}
+  head: {fileID: 0}
+  body: {fileID: 0}
+  legL: {fileID: 0}
+  legR: {fileID: 0}
+  character: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 0
 --- !u!1 &1485488919 stripped
@@ -1560,6 +1575,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1768800112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7479555992932102408, guid: fdd0912f2a7923541b6524a2dfbeb855,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032566911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1935909525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,8 +1747,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pM: {fileID: 2032566913}
+  head: {fileID: 2032566918}
+  body: {fileID: 2032566917}
+  legL: {fileID: 2032566916}
+  legR: {fileID: 2032566915}
+  character: {fileID: 1768800112}
   _isTrigger: 0
   _triggerForm: 0
+--- !u!212 &2032566915 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7479555993447860182, guid: fdd0912f2a7923541b6524a2dfbeb855,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032566911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2032566916 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7479555993727915905, guid: fdd0912f2a7923541b6524a2dfbeb855,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032566911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2032566917 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7479555994189268258, guid: fdd0912f2a7923541b6524a2dfbeb855,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032566911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2032566918 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7479555993310508051, guid: fdd0912f2a7923541b6524a2dfbeb855,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032566911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2124705211
 PrefabInstance:
   m_ObjectHideFlags: 0
