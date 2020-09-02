@@ -303,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5816c4508d9b05a49bae01c93d0ef817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mecanic: {fileID: 7965449074561987972}
+  Mecanic:
+  - {fileID: 7965449074561987972}
   rb: {fileID: 7965449076082199224}
   MassChek: 1
 --- !u!1 &7965449076225881899

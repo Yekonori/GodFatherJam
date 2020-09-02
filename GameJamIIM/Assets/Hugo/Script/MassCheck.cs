@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class MassCheck : MonoBehaviour
 {
-    public VerticalPlatform Mecanic;
+    public List<VerticalPlatform> Mecanic;
     public Rigidbody2D rb;
     public float MassChek;
 
@@ -10,7 +11,10 @@ public class MassCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "SpringTrigger")
         {
-            Destroy(Mecanic);
+            foreach(VerticalPlatform plat in Mecanic)
+            {
+                Destroy(plat);
+            }
         }
 
         if (collision.gameObject.tag == "Player")
@@ -18,7 +22,11 @@ public class MassCheck : MonoBehaviour
             if (collision.gameObject.GetComponent<Rigidbody2D>().mass > MassChek)
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-                Mecanic.ActiveAutomatic();
+
+                foreach (VerticalPlatform plat in Mecanic)
+                {
+                    plat.ActiveAutomatic();
+                }
             }
             else
             {
