@@ -48,10 +48,7 @@ public class FormsManager : MonoBehaviour
         switch (forms)
         {
             case eForms.BASE:
-                break;
-            case eForms.BOX:
-                break;
-            case eForms.CAPSULE:
+                playerForm = basicForm;
                 break;
             case eForms.BIG:
                 playerForm = bigForm;
@@ -76,10 +73,7 @@ public class FormsManager : MonoBehaviour
         switch (forms)
         {
             case eForms.BASE:
-                break;
-            case eForms.BOX:
-                break;
-            case eForms.CAPSULE:
+                playerMovement = basicForm.GetComponent<PlayerMovement>();
                 break;
             case eForms.BIG:
                 playerMovement = bigForm.GetComponent<PlayerMovement>();
