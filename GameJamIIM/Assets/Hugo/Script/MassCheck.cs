@@ -1,23 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MassCheck : MonoBehaviour
 {
-    public GameObject Mecanic;
+    public VerticalPlatform Mecanic;
     public Rigidbody2D rb;
     public float MassChek;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,12 +15,10 @@ public class MassCheck : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log(gameObject.GetComponent<Rigidbody2D>().mass);
-           if( gameObject.GetComponent<Rigidbody2D>().mass > MassChek) 
+            if (collision.gameObject.GetComponent<Rigidbody2D>().mass > MassChek)
             {
-
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-
+                Mecanic.ActiveAutomatic();
             }
             else
             {
