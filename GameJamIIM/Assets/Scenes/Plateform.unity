@@ -980,8 +980,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616070218094720957, guid: fdd0912f2a7923541b6524a2dfbeb855,
         type: 3}
-      propertyPath: colliderOffset.x
-      value: 0
+      propertyPath: groundLength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616070218094720957, guid: fdd0912f2a7923541b6524a2dfbeb855,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616070218094720957, guid: fdd0912f2a7923541b6524a2dfbeb855,
+        type: 3}
+      propertyPath: fallMultiplier
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdd0912f2a7923541b6524a2dfbeb855, type: 3}
@@ -1010,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 5699149115329052907, guid: 9754fc03f1d08ee47bd33849ee2bab2d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.692
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 5699149115329052907, guid: 9754fc03f1d08ee47bd33849ee2bab2d,
         type: 3}
