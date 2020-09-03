@@ -312,9 +312,8 @@ public class PlayerMovement : MonoBehaviour
      * */
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
-        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, transform.TransformDirection(Vector3.down) * groundLength, Color.red);
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, transform.TransformDirection(Vector3.down) * groundLength, Color.red);
     }
 
     #endregion
