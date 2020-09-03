@@ -52,7 +52,7 @@ MonoBehaviour:
   fallMultiplier: 5
   moveSpeed: 10
   direction: {x: 0, y: 0}
-  jumpSpeed: 10
+  jumpSpeed: 25
   jumpDelay: 0.25
   onGround: 1
   groundLength: 1
@@ -78,6 +78,7 @@ MonoBehaviour:
   pM: {fileID: 2850497191232984007}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
+  balloonForm: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 3
 --- !u!95 &6935594514195919560

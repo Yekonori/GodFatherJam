@@ -114,6 +114,7 @@ public class FormsManager : MonoBehaviour
             case eForms.TALL:
                 break;
             case eForms.BALLOON:
+                playerMovement = balloonForm.GetComponent<PlayerMovement>();
                 break;
             case eForms.NAIN:
                 playerMovement = nainForm.GetComponent<PlayerMovement>();
