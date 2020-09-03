@@ -82,6 +82,28 @@ public class FormsManager : MonoBehaviour
         return playerMovement;
     }
 
+    public Rigidbody2D GetRBForm(eForms forms)
+    {
+        Rigidbody2D playerMovement = null;
+
+        switch (forms)
+        {
+            case eForms.BASE:
+                playerMovement = basicForm.GetComponent<Rigidbody2D>();
+                break;
+            case eForms.BALLOON:
+                playerMovement = balloonForm.GetComponent<Rigidbody2D>();
+                break;
+            case eForms.NAIN:
+                playerMovement = nainForm.GetComponent<Rigidbody2D>();
+                break;
+            default:
+                break;
+        }
+
+        return playerMovement;
+    }
+
     public PlayerMovement GetMovementPlayer(eForms forms)
     {
         PlayerMovement playerMovement = null;

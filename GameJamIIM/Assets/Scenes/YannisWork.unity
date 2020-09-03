@@ -334,12 +334,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &846391774 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3742847770044716010, guid: 6e72a4baf81fff2428ae0768f8132344,
-    type: 3}
-  m_PrefabInstance: {fileID: 3742847769357151046}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &988582278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -590,6 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pM: {fileID: 1238318640}
   cc2D: {fileID: 0}
+  rb2D: {fileID: 0}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
   balloonForm: {fileID: 0}
@@ -832,11 +827,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6721403636442532104, guid: 6e72a4baf81fff2428ae0768f8132344,
-        type: 3}
-      propertyPath: cc2D
-      value: 
-      objectReference: {fileID: 846391774}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e72a4baf81fff2428ae0768f8132344, type: 3}
 --- !u!1001 &4976493836033137483
