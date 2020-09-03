@@ -6,6 +6,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     #region variable
     [SerializeField] Vector3 RespawnPoint;
+    [SerializeField] float deathTime = 1f;
 
     #endregion
 
@@ -21,12 +22,6 @@ public class PlayerRespawn : MonoBehaviour
     {
        
     }
-    private void Respawn() 
-    {
-        
-        transform.position = RespawnPoint;
-      
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "CheckPoint")
@@ -39,10 +34,35 @@ public class PlayerRespawn : MonoBehaviour
     {
         if(collision.gameObject.tag == "death") 
         {
-            Respawn();
-        
+            //Debug.Log("Before Coroutine");
+            LauchRevive();
+            //Debug.Log("AfterCoroutine");
+
         }
+
+
     }
+    IEnumerator Revive()
+    {
+        gameObject.SetActive(false);
+        //Debug.Log("SetActive False");
+        transform.position = RespawnPoint;
+        //Debug.Log("Teleport ");
+        gameObject.SetActive(true);
+        //Debug.Log("Revive !");
+        yield return new WaitForSeconds(1f);
+        //Debug.LogError("Wait");
+        
+        yield break;
+    }
+
+    public void LauchRevive()
+    {
+        StartCoroutine(Revive());
+    }
+
+
+
 
     #endregion
 }
