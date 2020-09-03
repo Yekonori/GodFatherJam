@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/** TO DO : Add coyote Time
+/** TO DO :
             Particule Effect
 */
 public class PlayerMovement : MonoBehaviour
@@ -18,11 +18,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 100f;
     [SerializeField] Vector2 direction;
     private bool facingRight = true;
+    private bool isMoving = false;
 
     [Header("Vertical Movement")]
     [SerializeField] float jumpSpeed = 15f;
     [SerializeField] float jumpDelay = 0.25f;
+    [SerializeField] float hangTime = 0.1f;
+    private float hangCounter;
     private float jumpTimer;
+    private bool isJump = false;
 
     [Header("Collision")]
     [SerializeField] public bool onGround = false;
@@ -54,9 +58,19 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
+
+        //for modify physics
+        if (direction.x != 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
         JumpCheck();
-        if (jumpTimer > Time.time && onGround)
+        if ((jumpTimer > Time.time && onGround) && (hangCounter > 0 && Input.GetButtonDown("Jump")))
         {
             Jump();
         }
@@ -69,8 +83,6 @@ public class PlayerMovement : MonoBehaviour
         modifyPhysics();
     }
 
-    /* Problem : Jump make Velocity.x go to instant 0 (same problem when landing)
-      */
     void Run(float horizontal)
     {
         rb.AddForce(Vector2.right * horizontal * moveSpeed);
@@ -79,12 +91,14 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        //limit speed run
         if (Mathf.Abs(rb.velocity.x) > maxSpeed)
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
 
-        // Run animation
+        // Run animation + velocity controle
         if (direction.x != 0)
         {
             foreach (Animator anim in animator)
@@ -98,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("isRunning", false);
             }
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         //Speed Check
@@ -119,6 +134,33 @@ public class PlayerMovement : MonoBehaviour
         //    StartCoroutine(JumpSqueeze(1.5f, 0.5f, 0.03f));
         //}
 
+        //Jumping Animation
+        if (rb.velocity.y != 0)
+        {
+            foreach (Animator anim in animator)
+            {
+                anim.SetBool("isJumping", true);
+            }
+            isJump = true;
+        }
+        else
+        {
+            foreach (Animator anim in animator)
+            {
+                anim.SetBool("isJumping", false);
+            }
+            isJump = false;
+        }
+
+        //Coyote Time
+        if (onGround)
+        {
+            hangCounter = hangTime;
+        }
+        else
+        {
+            hangCounter -= Time.deltaTime;
+        }
 
         // Jump Delay after Input
         if (Input.GetButtonDown("Jump"))
@@ -134,14 +176,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        //rb.velocity =  Vector2.up * jumpSpeed;
-        
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jumpSpeed);
+        rb.velocity = new Vector2(rb.velocity.x, 0 + jumpSpeed);
         jumpTimer = 0;
+        hangCounter = 0;
         //Squeeze animation 
         //StartCoroutine(JumpSqueeze(0.5f, 0.5f, 0.03f));
-        StartCoroutine(JumpAnimation());
     }
 
     #endregion
@@ -152,20 +191,42 @@ public class PlayerMovement : MonoBehaviour
     {
         bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
 
+        if (changingDirections)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
         //No Jump
         if (onGround)
         {
-            if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
+            if (!isMoving)
             {
-                rb.drag = linearDrag;
+                if (!isJump)
+                {
+                    rb.drag = 0;
+                }
+                else
+                {
+                    rb.drag = linearDrag;
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }
             }
+
             else
             {
                 rb.drag = 0f;
             }
-            rb.gravityScale = 0;
+            //if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
+            //{
+            //    rb.drag = linearDrag;
+            //}
+            //else
+            //{
+            //    rb.drag = 0f;
+            //}
+            //rb.gravityScale = 0;
+
         }
-        //Jump
+        //Jump or falling
         else
         {
             rb.gravityScale = gravity;
@@ -173,13 +234,13 @@ public class PlayerMovement : MonoBehaviour
             if (rb.velocity.y < 0)
             {
                 rb.gravityScale = gravity * fallMultiplier;
+
             }
             //Replace GetButtonDown by GetButton for Higher Jump if press down 
             else if (rb.velocity.y > 0 && !Input.GetButtonDown("Jump"))
             {
                 rb.gravityScale = gravity * (fallMultiplier / 2);
             }
-
         }
 
     }
@@ -212,24 +273,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    IEnumerator JumpAnimation()
-    {
-        //animator.SetBool("PreJumping", true);
-        //yield return null;
-        foreach (Animator anim in animator)
-        {
-            anim.SetBool("isJumping", true);
-        }
-        yield return null;
-        //animator.SetBool("LandJumping", true);
-        //animator.SetBool("isJumping", false);
-        foreach (Animator anim in animator)
-        {
-            anim.SetBool("isJumping", false);
-        }
-    }
-
-
     /**  Raycast Drawing
      * */
     private void OnDrawGizmos()
@@ -238,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
         Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
     }
-    
+
     #endregion
 
     public void CopyCatPlayerMovement(PlayerMovement copycatPM)
