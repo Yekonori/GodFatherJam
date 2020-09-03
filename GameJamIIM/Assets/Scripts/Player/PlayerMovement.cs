@@ -125,11 +125,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Land animation
-        if (!wasOnGround && onGround)
-        {
-            StartCoroutine(JumpSqueeze(1f, 0.3f, 0.05f));
+        //if (!wasOnGround && onGround)
+        //{
+        //    StartCoroutine(JumpSqueeze(1f, 0.3f, 0.05f));
 
-        }
+        //}
 
         // Jump Delay after Input
         if (Input.GetButtonDown("Jump"))
@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
         jumpTimer = 0;
         hangCounter = 0;
         //Squeeze animation 
-        StartCoroutine(JumpSqueeze(0.3f, 1f, 0.1f));
+        //StartCoroutine(JumpSqueeze(0.3f, 1f, 0.1f));
         animator.SetBool("isJumping", true);
     }
 
