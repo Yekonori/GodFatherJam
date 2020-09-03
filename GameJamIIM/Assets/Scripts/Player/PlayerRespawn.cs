@@ -7,13 +7,14 @@ public class PlayerRespawn : MonoBehaviour
     #region variable
     [SerializeField] Vector3 RespawnPoint;
     [SerializeField] float deathTime = 1f;
-
+    public AudioSource Respawnaudio;
     #endregion
 
     #region System
     
     void Start()
     {
+        
         RespawnPoint = transform.position;
     }
 
@@ -49,6 +50,7 @@ public class PlayerRespawn : MonoBehaviour
         transform.position = RespawnPoint;
         //Debug.Log("Teleport ");
         gameObject.SetActive(true);
+        Respawnaudio.Play();
         //Debug.Log("Revive !");
         yield return new WaitForSeconds(1f);
         //Debug.LogError("Wait");
