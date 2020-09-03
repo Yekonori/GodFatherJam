@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("isRunning", false);
             }
-            if(linearDrag != 5)
+            if(pcf.CurrentForm != eForms.BALLOON)
             {
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
         bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
 
         //no slide between change direction exept Balloon
-        if ((Mathf.Abs(direction.x) < 0.4f || changingDirections) && linearDrag == 5)
+        if ((Mathf.Abs(direction.x) < 0.4f || changingDirections) && pcf.CurrentForm == eForms.BALLOON)
         {
              if (Mathf.Abs(rb.velocity.x) >= 1f)
              {
@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
                         //Debug.Log("rb.velocity.x < -1 = " + rb.velocity.x);
                     }
 
-                    if (Mathf.Round(rb.velocity.x) >= -1 && Mathf.Round(rb.velocity.x) <= 1 && linearDrag == 5)
+                    if (Mathf.Round(rb.velocity.x) >= -1 && Mathf.Round(rb.velocity.x) <= 1 && pcf.CurrentForm == eForms.BALLOON)
                     {
                         rb.velocity = new Vector2(0, rb.velocity.y);
                     }
@@ -235,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     rb.drag = 0;
                 }
-                else if(linearDrag == 5)
+                else if(pcf.CurrentForm == eForms.BALLOON)
                 {
                     rb.drag = 0;
                 }
