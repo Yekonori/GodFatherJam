@@ -93,7 +93,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   jumpSpeed: 20
   jumpDelay: 0.25
-  hangTime: 0.2
+  hangTime: 0.1
   onGround: 1
   groundLength: 1
   colliderOffset: {x: 0, y: 0, z: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHolder: {fileID: 7479555992932102408}
+  characterHolder: {fileID: 8616070218395980965}
   pM: {fileID: 8616070218094720957}
   _isTrigger: 0
   _triggerForm: 0
@@ -232,12 +232,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e7968d8001fa364ab7e0f613a6ddb04, type: 3}
---- !u!1 &7479555992932102408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7479555993192388886, guid: 0e7968d8001fa364ab7e0f613a6ddb04,
-    type: 3}
-  m_PrefabInstance: {fileID: 935127070}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7479555992932102411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7479555993192388885, guid: 0e7968d8001fa364ab7e0f613a6ddb04,
