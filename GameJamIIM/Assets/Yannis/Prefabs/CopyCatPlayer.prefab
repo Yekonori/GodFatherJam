@@ -93,8 +93,9 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   jumpSpeed: 20
   jumpDelay: 0.25
+  hangTime: 0.1
   onGround: 1
-  groundLength: 1
+  groundLength: 1.2
   colliderOffset: {x: 0, y: 0, z: 0}
   animator:
   - {fileID: 6070285754223777843}
@@ -118,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RespawnPoint: {x: 0, y: 0, z: 0}
   deathTime: 1
+  Respawnaudio: {fileID: 0}
 --- !u!114 &6721403636442532104
 MonoBehaviour:
   m_ObjectHideFlags: 0
