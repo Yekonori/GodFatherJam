@@ -90,7 +90,7 @@ MonoBehaviour:
   linearDrag: 15
   gravity: 1
   fallMultiplier: 14
-  moveSpeed: 100
+  moveSpeed: 10
   direction: {x: 0, y: 0}
   jumpSpeed: 20
   jumpDelay: 0.25
