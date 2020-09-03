@@ -39,7 +39,7 @@ public class PlayerChangeForm : MonoBehaviour
         balloonForm.SetActive(false);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
