@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8616070218094720946}
   - component: {fileID: 539179731}
   - component: {fileID: 8616070218094720957}
-  - component: {fileID: 7072604501119751201}
   - component: {fileID: 6541987078926481538}
   - component: {fileID: 7977700995548241969}
   m_Layer: 0
@@ -103,18 +102,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   characterHolder: {fileID: 8616070218395980965}
---- !u!114 &7072604501119751201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8616070218094720952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6227e4c4bf98904408afd6c25f94176f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6541987078926481538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnPoint: {x: 0, y: 0, z: 0}
+  deathTime: 1
 --- !u!114 &7977700995548241969
 MonoBehaviour:
   m_ObjectHideFlags: 0
