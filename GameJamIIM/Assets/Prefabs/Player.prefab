@@ -93,7 +93,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   jumpSpeed: 20
   jumpDelay: 0.25
-  hangTime: 0.2
+  hangTime: 0.1
   onGround: 1
   groundLength: 1
   colliderOffset: {x: 0, y: 0, z: 0}
