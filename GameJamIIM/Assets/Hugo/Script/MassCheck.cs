@@ -5,12 +5,21 @@ public class MassCheck : MonoBehaviour
 {
     public List<VerticalPlatform> Mecanic;
     public Rigidbody2D rb;
+    private AudioSource audio;
     public float MassChek;
+
+
+    private void Start()
+    {
+        audio = gameObject.GetComponent<AudioSource>();
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Trigger")
         {
+            
             foreach(VerticalPlatform plat in Mecanic)
             {
                 Destroy(plat);
@@ -19,6 +28,7 @@ public class MassCheck : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
+            audio.Play();
             if (collision.gameObject.GetComponent<Rigidbody2D>().mass > MassChek)
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -33,9 +43,6 @@ public class MassCheck : MonoBehaviour
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             }
         }
-        if (collision.gameObject.tag == "Trigger")
-        {
-            
-        }
+        
     }
 }
