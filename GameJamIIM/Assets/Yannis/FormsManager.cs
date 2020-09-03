@@ -7,8 +7,6 @@ public class FormsManager : MonoBehaviour
     #region Script Parameters
 
     [SerializeField] private GameObject basicForm;
-    [SerializeField] private GameObject bigForm;
-    [SerializeField] private GameObject tallForm;
     [SerializeField] private GameObject balloonForm;
     [SerializeField] private GameObject nainForm;
 
@@ -50,11 +48,6 @@ public class FormsManager : MonoBehaviour
             case eForms.BASE:
                 playerForm = basicForm;
                 break;
-            case eForms.BIG:
-                playerForm = bigForm;
-                break;
-            case eForms.TALL:
-                break;
             case eForms.BALLOON:
                 break;
             case eForms.NAIN:
@@ -75,11 +68,6 @@ public class FormsManager : MonoBehaviour
         {
             case eForms.BASE:
                 playerMovement = basicForm.GetComponent<PlayerMovement>();
-                break;
-            case eForms.BIG:
-                playerMovement = bigForm.GetComponent<PlayerMovement>();
-                break;
-            case eForms.TALL:
                 break;
             case eForms.BALLOON:
                 playerMovement = balloonForm.GetComponent<PlayerMovement>();

@@ -44,8 +44,6 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter");
-
         NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
         if (otherNPC != null)
@@ -57,8 +55,6 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerExit");
-
         NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
         if (otherNPC != null)
