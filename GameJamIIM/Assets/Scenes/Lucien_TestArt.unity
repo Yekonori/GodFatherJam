@@ -3081,6 +3081,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Balloon_Character
       objectReference: {fileID: 0}
+    - target: {fileID: 8587938580554561971, guid: 9d95b205ef825e74cb69f5a2e2cbb1d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d95b205ef825e74cb69f5a2e2cbb1d0, type: 3}
 --- !u!4 &2171290437341826734 stripped

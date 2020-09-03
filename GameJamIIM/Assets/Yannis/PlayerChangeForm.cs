@@ -11,6 +11,7 @@ public class PlayerChangeForm : MonoBehaviour
 
     [SerializeField] private GameObject basicForm;
     [SerializeField] private GameObject smallForm;
+    [SerializeField] private GameObject balloonForm;
 
     #endregion
 
@@ -27,6 +28,7 @@ public class PlayerChangeForm : MonoBehaviour
     {
         basicForm.SetActive(true);
         smallForm.SetActive(false);
+        balloonForm.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -82,12 +84,19 @@ public class PlayerChangeForm : MonoBehaviour
             case eForms.BASE:
                 basicForm.SetActive(true);
                 smallForm.SetActive(false);
+                balloonForm.SetActive(false);
                 //pM.Animator.runtimeAnimatorController = basicForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
                 break;
             case eForms.NAIN:
                 basicForm.SetActive(false);
                 smallForm.SetActive(true);
+                balloonForm.SetActive(false);
                 //pM.Animator.runtimeAnimatorController = smallForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
+                break;
+            case eForms.BALLOON:
+                basicForm.SetActive(false);
+                smallForm.SetActive(false);
+                balloonForm.SetActive(true);
                 break;
         }
 

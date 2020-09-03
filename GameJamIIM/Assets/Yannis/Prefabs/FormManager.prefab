@@ -47,6 +47,12 @@ MonoBehaviour:
     type: 3}
   bigForm: {fileID: 8616070218094720952, guid: 905687ecd1b0bb74eb99634547582040, type: 3}
   tallForm: {fileID: 0}
-  balloonForm: {fileID: 0}
+  balloonForm: {fileID: 2850497191232984002, guid: 9c83487a49657fd44973612f343256c4,
+    type: 3}
   nainForm: {fileID: 5174405491739858504, guid: 97f14f81be5f3b549ac3ec4c5af2e3f7,
     type: 3}
+  basicAnimator: {fileID: 0}
+  bigAnimator: {fileID: 0}
+  tallAnimator: {fileID: 0}
+  balloonAnimator: {fileID: 0}
+  nainAnimator: {fileID: 0}
