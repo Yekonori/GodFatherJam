@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/** TO DO : Add coyote Time
-            Particule Effect
+/** TO DO : Particule Effect
+            Sound Effect
 */
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,10 +22,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Vertical Movement")]
     [SerializeField] float jumpSpeed = 15f;
     [SerializeField] float jumpDelay = 0.25f;
+    [SerializeField] float hangTime = 0.2f;
+    private float hangCounter;
     private float jumpTimer;
 
     [Header("Collision")]
-    [SerializeField] bool onGround = false;
+    [SerializeField] public bool onGround = false;
     [SerializeField] float groundLength = 1f;
     [SerializeField] Vector3 colliderOffset;
     #endregion
@@ -35,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     CapsuleCollider2D playerCollider;
     [SerializeField] Animator animator;
+    public Animator Animator
+    {
+        get { return animator; }
+        set { animator = value; }
+    }
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject characterHolder;
     #endregion
@@ -49,14 +56,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
         JumpCheck();
-        if (jumpTimer > Time.time && onGround)
+
+        if ((jumpTimer > Time.time && onGround) || (hangCounter > 0 && Input.GetButtonDown("Jump")))
         {
             Jump();
         }
         Run(direction.x);
-
+        
     }
 
     void FixedUpdate()
@@ -64,8 +71,6 @@ public class PlayerMovement : MonoBehaviour
         modifyPhysics();
     }
 
-    /* Problem : Jump make Velocity.x go to instant 0 (same problem when landing)
-      */
     void Run(float horizontal)
     {
         rb.AddForce(Vector2.right * horizontal * moveSpeed);
@@ -99,12 +104,32 @@ public class PlayerMovement : MonoBehaviour
         bool wasOnGround = onGround;
         onGround = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, Vector2.down, groundLength, groundLayer);
 
+        //Jumping Animation
+        if (rb.velocity.y != 0)
+        {
+            animator.SetBool("isJumping", true);
+        }
+        else
+        {
+            animator.SetBool("isJumping", false);
+        }
+
+        //Coyote Time
+        if (onGround)
+        {
+            hangCounter = hangTime;
+        }
+        else
+        {
+            hangCounter -= Time.deltaTime;
+        }
+
         // Land animation
         //if (!wasOnGround && onGround)
         //{
-        //    StartCoroutine(JumpSqueeze(1.5f, 0.5f, 0.03f));
-        //}
+        //    StartCoroutine(JumpSqueeze(1f, 0.3f, 0.05f));
 
+        //}
 
         // Jump Delay after Input
         if (Input.GetButtonDown("Jump"))
@@ -117,14 +142,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
-        //rb.velocity =  Vector2.up * jumpSpeed;
-        
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jumpSpeed);
+        rb.velocity = new Vector2(rb.velocity.x, 0 + jumpSpeed);
         jumpTimer = 0;
+        hangCounter = 0;
         //Squeeze animation 
-        //StartCoroutine(JumpSqueeze(0.5f, 0.5f, 0.03f));
-        StartCoroutine(JumpAnimation());
+        //StartCoroutine(JumpSqueeze(0.3f, 1f, 0.1f));
+        animator.SetBool("isJumping", true);
     }
 
     #endregion
@@ -148,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.gravityScale = 0;
         }
-        //Jump
+        //Jump or falling
         else
         {
             rb.gravityScale = gravity;
@@ -156,13 +179,13 @@ public class PlayerMovement : MonoBehaviour
             if (rb.velocity.y < 0)
             {
                 rb.gravityScale = gravity * fallMultiplier;
+
             }
             //Replace GetButtonDown by GetButton for Higher Jump if press down 
             else if (rb.velocity.y > 0 && !Input.GetButtonDown("Jump"))
             {
                 rb.gravityScale = gravity * (fallMultiplier / 2);
             }
-
         }
 
     }
@@ -195,28 +218,22 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    IEnumerator JumpAnimation()
-    {
-        //animator.SetBool("PreJumping", true);
-        //yield return null;
-        animator.SetBool("isJumping", true);
-        yield return null;
-        //animator.SetBool("LandJumping", true);
-        animator.SetBool("isJumping", false);
-    }
-
-
     /**  Raycast Drawing
      * */
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
-        Gizmos.DrawLine(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, transform.TransformDirection(Vector3.down) * groundLength, Color.red);
+        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, transform.TransformDirection(Vector3.down) * groundLength, Color.red);
     }
-    
-    #endregion
 
+    #endregion
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("ascenseur"))
+        {
+            rb.velocity = collision.relativeVelocity;
+        }
+    }
     public void CopyCatPlayerMovement(PlayerMovement copycatPM)
     {
         maxSpeed = copycatPM.maxSpeed;

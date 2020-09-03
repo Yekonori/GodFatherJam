@@ -6,6 +6,7 @@ public class PlayerChangeForm : MonoBehaviour
 {
     #region Script Parameters
 
+    [SerializeField] private GameObject characterHolder;
     [SerializeField] private PlayerMovement pM;
 
     #endregion
@@ -58,6 +59,19 @@ public class PlayerChangeForm : MonoBehaviour
     #endregion
 
     private void CopycatForm()
+    {
+        PlayerChangeForm newForm = FormsManager.Instance.GetForm(_triggerForm).GetComponent<PlayerChangeForm>();
+
+        GameObject newCharacter = newForm.characterHolder.transform.GetChild(0).gameObject;
+        pM.Animator = newForm.pM.Animator;
+
+        Destroy(characterHolder.transform.GetChild(0).gameObject);
+        Instantiate(newCharacter, characterHolder.transform);
+
+        CopyCatValue();
+    }
+
+    private void CopyCatValue()
     {
         PlayerMovement pMForm = FormsManager.Instance.GetMovementPlayer(_triggerForm);
 

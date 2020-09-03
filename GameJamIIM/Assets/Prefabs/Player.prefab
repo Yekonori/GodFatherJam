@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8616070218094720956}
   - component: {fileID: 8616070218094720946}
-  - component: {fileID: 8616070218094720957}
   - component: {fileID: 539179731}
+  - component: {fileID: 8616070218094720957}
+  - component: {fileID: 6541987078926481538}
+  - component: {fileID: 7977700995548241969}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -55,6 +57,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &539179731
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616070218094720952}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 201796ce67d06384d9e13922a298cf69, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.9242845}
+  m_Size: {x: 0.5, y: 1.7188741}
+  m_Direction: 0
 --- !u!114 &8616070218094720957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,13 +86,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 7
-  linearDrag: 10
+  linearDrag: 15
   gravity: 1
-  fallMultiplier: 5
+  fallMultiplier: 14
   moveSpeed: 10
   direction: {x: 0, y: 0}
-  jumpSpeed: 10
+  jumpSpeed: 20
   jumpDelay: 0.25
+  hangTime: 0.1
   onGround: 1
   groundLength: 1
   colliderOffset: {x: 0, y: 0, z: 0}
@@ -83,22 +102,36 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   characterHolder: {fileID: 8616070218395980965}
---- !u!70 &539179731
-CapsuleCollider2D:
+--- !u!114 &6541987078926481538
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8616070218094720952}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.92308474}
-  m_Size: {x: 0.5, y: 1.7509861}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a2c0eab43c28e4e815d9efccd83ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RespawnPoint: {x: 0, y: 0, z: 0}
+  deathTime: 1
+--- !u!114 &7977700995548241969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616070218094720952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterHolder: {fileID: 8616070218395980965}
+  pM: {fileID: 8616070218094720957}
+  _isTrigger: 0
+  _triggerForm: 0
 --- !u!1 &8616070218395980965
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 7479555993192388885, guid: 0e7968d8001fa364ab7e0f613a6ddb04,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 7479555993192388885, guid: 0e7968d8001fa364ab7e0f613a6ddb04,
         type: 3}
