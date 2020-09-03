@@ -46,17 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 7
-  linearDrag: 10
+  linearDrag: 15
   gravity: 1
-  fallMultiplier: 5
+  fallMultiplier: 12
   moveSpeed: 10
   direction: {x: 0, y: 0}
-  jumpSpeed: 10
+  jumpSpeed: 17
   jumpDelay: 0.25
   onGround: 1
   groundLength: 1
   colliderOffset: {x: 0, y: 0, z: 0}
-  animator: {fileID: 7479555992932102410}
+  animator:
+  - {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -73,8 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHolder: {fileID: 8616070218395980965}
   pM: {fileID: 8616070218094720957}
+  basicForm: {fileID: 0}
+  smallForm: {fileID: 0}
+  balloonForm: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 0
 --- !u!1 &8616070218395980965
@@ -196,12 +199,6 @@ PrefabInstance:
 --- !u!4 &7479555992932102411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7479555993192388885, guid: 0e7968d8001fa364ab7e0f613a6ddb04,
-    type: 3}
-  m_PrefabInstance: {fileID: 935127070}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7479555992932102410 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7479555993192388884, guid: 0e7968d8001fa364ab7e0f613a6ddb04,
     type: 3}
   m_PrefabInstance: {fileID: 935127070}
   m_PrefabAsset: {fileID: 0}
