@@ -338,6 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7479555993192388885}
   - component: {fileID: 7479555993192388884}
+  - component: {fileID: 583607502}
   m_Layer: 0
   m_Name: Classic_Character
   m_TagString: Untagged
@@ -382,6 +383,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &583607502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479555993192388886}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243569c3c5648f840ae7234afbf34cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 7
+  linearDrag: 15
+  gravity: 1
+  fallMultiplier: 14
+  moveSpeed: 10
+  direction: {x: 0, y: 0}
+  jumpSpeed: 20
+  jumpDelay: 0.25
+  onGround: 1
+  groundLength: 1
+  colliderOffset: {x: 0, y: 0, z: 0}
+  animator: []
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  characterHolder: {fileID: 0}
 --- !u!1 &7479555993355118764
 GameObject:
   m_ObjectHideFlags: 0
