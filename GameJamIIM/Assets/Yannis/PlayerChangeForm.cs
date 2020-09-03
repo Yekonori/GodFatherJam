@@ -8,6 +8,7 @@ public class PlayerChangeForm : MonoBehaviour
 
     //[SerializeField] private GameObject characterHolder;
     [SerializeField] private PlayerMovement pM;
+    [SerializeField] private CapsuleCollider2D cc2D;
 
     [SerializeField] private GameObject basicForm;
     [SerializeField] private GameObject smallForm;
@@ -97,6 +98,7 @@ public class PlayerChangeForm : MonoBehaviour
         }
 
         CopyCatValue();
+        CopyCatCapsule();
     }
 
     private void CopyCatValue()
@@ -106,6 +108,17 @@ public class PlayerChangeForm : MonoBehaviour
         if (pMForm != null)
         {
             pM.CopyCatPlayerMovement(pMForm);
+        }
+    }
+
+    private void CopyCatCapsule()
+    {
+        CapsuleCollider2D pMForm = FormsManager.Instance.GetCapsuleForm(_triggerForm);
+
+        if (pMForm != null)
+        {
+            cc2D.offset = pMForm.offset;
+            cc2D.size = pMForm.size;
         }
     }
 }

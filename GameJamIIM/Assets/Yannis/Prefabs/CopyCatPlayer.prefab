@@ -70,8 +70,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.9242845}
-  m_Size: {x: 0.5, y: 1.7188741}
+  m_Offset: {x: 0, y: 0.85822916}
+  m_Size: {x: 0.5, y: 1.6764584}
   m_Direction: 0
 --- !u!114 &4927828604824870532
 MonoBehaviour:
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnPoint: {x: 0, y: 0, z: 0}
+  deathTime: 1
 --- !u!114 &6721403636442532104
 MonoBehaviour:
   m_ObjectHideFlags: 0

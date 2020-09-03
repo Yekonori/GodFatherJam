@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5174405491739858509}
   - component: {fileID: 4714007905518405485}
   - component: {fileID: 847738690}
+  - component: {fileID: 988582280}
   m_Layer: 0
   m_Name: SmallPlayer
   m_TagString: Player
@@ -76,8 +77,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pM: {fileID: 5174405491739858509}
+  cc2D: {fileID: 0}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
+  balloonForm: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 4
 --- !u!95 &847738690
@@ -99,6 +102,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &988582280
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174405491739858504}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 201796ce67d06384d9e13922a298cf69, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.51}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &5174405491974419797
 GameObject:
   m_ObjectHideFlags: 0

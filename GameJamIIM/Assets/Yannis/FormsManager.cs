@@ -60,6 +60,28 @@ public class FormsManager : MonoBehaviour
         return playerForm;
     }
 
+    public CapsuleCollider2D GetCapsuleForm(eForms forms)
+    {
+        CapsuleCollider2D playerMovement = null;
+
+        switch (forms)
+        {
+            case eForms.BASE:
+                playerMovement = basicForm.GetComponent<CapsuleCollider2D>();
+                break;
+            case eForms.BALLOON:
+                playerMovement = balloonForm.GetComponent<CapsuleCollider2D>();
+                break;
+            case eForms.NAIN:
+                playerMovement = nainForm.GetComponent<CapsuleCollider2D>();
+                break;
+            default:
+                break;
+        }
+
+        return playerMovement;
+    }
+
     public PlayerMovement GetMovementPlayer(eForms forms)
     {
         PlayerMovement playerMovement = null;
