@@ -33,7 +33,7 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetButtonDown("Fire1"))
         {
             if (_isTrigger)
             {
