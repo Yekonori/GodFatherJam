@@ -8,6 +8,14 @@ public class PlayerChangeForm : MonoBehaviour
 
     //[SerializeField] private GameObject characterHolder;
     [SerializeField] private PlayerMovement pM;
+    [SerializeField] private CapsuleCollider2D cc2D;
+    [SerializeField] private Rigidbody2D rb2D;
+
+    /**
+     * Normal & Gros : 2 mass
+     * Nain & Balloon : 1 mass
+     */
+    
 
     [SerializeField] private GameObject basicForm;
     [SerializeField] private GameObject smallForm;
@@ -44,8 +52,6 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter");
-
         NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
         if (otherNPC != null)
@@ -57,8 +63,6 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerExit");
-
         NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
         if (otherNPC != null)
@@ -101,6 +105,8 @@ public class PlayerChangeForm : MonoBehaviour
         }
 
         CopyCatValue();
+        CopyCatCapsule();
+        CopycatRB();
     }
 
     private void CopyCatValue()
@@ -110,6 +116,33 @@ public class PlayerChangeForm : MonoBehaviour
         if (pMForm != null)
         {
             pM.CopyCatPlayerMovement(pMForm);
+        }
+    }
+
+    private void CopyCatCapsule()
+    {
+        CapsuleCollider2D pMForm = FormsManager.Instance.GetCapsuleForm(_triggerForm);
+
+        if (pMForm != null)
+        {
+            cc2D.offset = pMForm.offset;
+            cc2D.size = pMForm.size;
+        }
+    }
+
+    private void CopycatRB()
+    {
+        switch (_triggerForm)
+        {
+            case eForms.BASE:
+                rb2D.mass = 2;
+                break;
+            case eForms.NAIN:
+                rb2D.mass = 1;
+                break;
+            case eForms.BALLOON:
+                rb2D.mass = 1;
+                break;
         }
     }
 }

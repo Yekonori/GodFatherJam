@@ -48,7 +48,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -70,8 +70,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.9242845}
-  m_Size: {x: 0.5, y: 1.7188741}
+  m_Offset: {x: 0, y: 0.85822916}
+  m_Size: {x: 0.5, y: 1.6764584}
   m_Direction: 0
 --- !u!114 &4927828604824870532
 MonoBehaviour:
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnPoint: {x: 0, y: 0, z: 0}
+  deathTime: 1
 --- !u!114 &6721403636442532104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pM: {fileID: 4927828604824870532}
+  cc2D: {fileID: 3742847770044716010}
+  rb2D: {fileID: 4927828604824870539}
   basicForm: {fileID: 6070285754223777841}
   smallForm: {fileID: 7995962277889215326}
   balloonForm: {fileID: 4962747523317156424}
