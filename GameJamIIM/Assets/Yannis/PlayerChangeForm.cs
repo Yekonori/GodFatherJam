@@ -82,10 +82,12 @@ public class PlayerChangeForm : MonoBehaviour
             case eForms.BASE:
                 basicForm.SetActive(true);
                 smallForm.SetActive(false);
+                pM.Animator.runtimeAnimatorController = basicForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
                 break;
             case eForms.NAIN:
                 basicForm.SetActive(false);
                 smallForm.SetActive(true);
+                pM.Animator.runtimeAnimatorController = smallForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
                 break;
         }
 
