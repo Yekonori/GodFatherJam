@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6232870265472016710}
   - component: {fileID: 6232870265343575948}
   m_Layer: 0
-  m_Name: BigPlayer 1
+  m_Name: BigPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,13 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243569c3c5648f840ae7234afbf34cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 13
+  maxSpeed: 3
   linearDrag: 20
   gravity: 1
-  fallMultiplier: 10
+  fallMultiplier: 12
+  glissValue: 0.1
+  pcf: {fileID: 0}
   moveSpeed: 10
   direction: {x: 0, y: 0}
-  jumpSpeed: 12.5
+  jumpSpeed: 15
   jumpDelay: 0.25
   hangTime: 0.1
   onGround: 1
@@ -83,6 +85,7 @@ MonoBehaviour:
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
   balloonForm: {fileID: 0}
+  bigForm: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 1
 --- !u!95 &6232870265472016710
