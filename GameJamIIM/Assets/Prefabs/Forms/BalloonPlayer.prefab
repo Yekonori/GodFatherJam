@@ -47,13 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243569c3c5648f840ae7234afbf34cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 7
-  linearDrag: 10
-  gravity: 1
-  fallMultiplier: 5
+  maxSpeed: 5
+  linearDrag: 5
+  gravity: 0.9
+  fallMultiplier: 2.5
   moveSpeed: 10
   direction: {x: 0, y: 0}
-  jumpSpeed: 25
+  jumpSpeed: 10
   jumpDelay: 0.25
   onGround: 1
   groundLength: 1
