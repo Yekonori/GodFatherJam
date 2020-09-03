@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float linearDrag = 10f;
     [SerializeField] float gravity = 1f;
     [SerializeField] float fallMultiplier = 5f;
+    [SerializeField] float glissValue = 0.1f
 
     [Header("Horizontal Movement")]
     [SerializeField] float moveSpeed = 100f;
@@ -112,7 +113,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("isRunning", false);
             }
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            if(linearDrag != 5)
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
         }
 
         //Speed Check
@@ -191,23 +195,53 @@ public class PlayerMovement : MonoBehaviour
     {
         bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
 
-        if (changingDirections)
+        //no slide between change direction exept Balloon
+        if ((Mathf.Abs(direction.x) < 0.4f || changingDirections) && linearDrag == 5)
+        {
+             if (Mathf.Abs(rb.velocity.x) >= 1f)
+             {
+                    if(rb.velocity.x > 1)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x - glissValue, rb.velocity.y);
+                        //Debug.Log("rb.velocity.x > 1 = " + rb.velocity.x);
+                    }
+                    else if(rb.velocity.x < -1)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x + glissValue, rb.velocity.y);
+                        //Debug.Log("rb.velocity.x < -1 = " + rb.velocity.x);
+                    }
+
+                    if (Mathf.Round(rb.velocity.x) >= -1 && Mathf.Round(rb.velocity.x) <= 1 && linearDrag == 5)
+                    {
+                        rb.velocity = new Vector2(0, rb.velocity.y);
+                    }
+                    //Debug.Log(Mathf.Round(rb.velocity.x));
+            }
+        }
+        else if (changingDirections)
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
+
+
         //No Jump
         if (onGround)
         {
             if (!isMoving)
             {
+                //pour le stopper net
                 if (!isJump)
+                {
+                    rb.drag = 0;
+                }
+                else if(linearDrag == 5)
                 {
                     rb.drag = 0;
                 }
                 else
                 {
                     rb.drag = linearDrag;
-                    rb.velocity = new Vector2(0, rb.velocity.y);
+                    //rb.velocity = new Vector2(0, rb.velocity.y);
                 }
             }
 
