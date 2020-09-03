@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 7965449074561987974}
   - component: {fileID: 7965449074561987969}
   - component: {fileID: 7965449074561987972}
+  - component: {fileID: 805788397}
   m_Layer: 8
   m_Name: Ascenseur
   m_TagString: Untagged
@@ -304,9 +305,21 @@ MonoBehaviour:
   points: {fileID: 7965449076290281505}
   platformSpeed: 2
   delayTime: 0
-  loopPath: 0
-  uniquePath: 1
-  isAutomatique: 0
+  loopPath: 1
+  uniquePath: 0
+  isAutomatique: 1
+--- !u!114 &805788397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965449074561987968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5de8fa0bfb59449a6092e0f889913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7965449076225881899
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +358,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7965449076225881899}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -434,7 +447,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7965449076499533808}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
