@@ -7,7 +7,7 @@ public class MassMultipleCheck : MonoBehaviour
     public Rigidbody2D rb;
     public float MassChek;
 
-    [SerializeField] private float _massTotal;
+    private float _massTotal;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
