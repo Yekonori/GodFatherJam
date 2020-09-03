@@ -28,7 +28,11 @@ public class MassCheck : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            audio.Play();
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+
             if (collision.gameObject.GetComponent<Rigidbody2D>().mass > MassChek)
             {
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;

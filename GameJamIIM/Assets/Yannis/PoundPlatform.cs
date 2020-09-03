@@ -11,6 +11,8 @@ public class PoundPlatform : MonoBehaviour
     [Header("Platform Values")]
     [SerializeField] private float platformSpeed = 2f;
 
+    [SerializeField] private AudioSource audio;
+
     #endregion
 
     #region Fields
@@ -73,6 +75,12 @@ public class PoundPlatform : MonoBehaviour
 
     private void MovePlatform()
     {
+        if (!audio.isPlaying)
+        {
+            Debug.Log("Play Sound");
+            audio.Play();
+        }
+
         Vector3 heading = _targetPoint - transform.position;
         transform.Translate((heading / heading.magnitude) * platformSpeed * Time.fixedDeltaTime);
 
