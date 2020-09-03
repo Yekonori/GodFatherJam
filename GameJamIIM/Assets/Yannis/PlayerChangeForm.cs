@@ -6,8 +6,12 @@ public class PlayerChangeForm : MonoBehaviour
 {
     #region Script Parameters
 
-    [SerializeField] private GameObject characterHolder;
+    //[SerializeField] private GameObject characterHolder;
     [SerializeField] private PlayerMovement pM;
+
+    [SerializeField] private GameObject basicForm;
+    [SerializeField] private GameObject smallForm;
+    [SerializeField] private GameObject balloonForm;
 
     #endregion
 
@@ -20,9 +24,16 @@ public class PlayerChangeForm : MonoBehaviour
 
     #region Unity Methods
 
+    private void Start()
+    {
+        basicForm.SetActive(true);
+        smallForm.SetActive(false);
+        balloonForm.SetActive(false);
+    }
+
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetButtonDown("Fire1"))
         {
             if (_isTrigger)
             {
@@ -60,13 +71,34 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void CopycatForm()
     {
-        PlayerChangeForm newForm = FormsManager.Instance.GetForm(_triggerForm).GetComponent<PlayerChangeForm>();
+        //PlayerChangeForm newForm = FormsManager.Instance.GetForm(_triggerForm).GetComponent<PlayerChangeForm>();
 
-        GameObject newCharacter = newForm.characterHolder.transform.GetChild(0).gameObject;
-        pM.Animator = newForm.pM.Animator;
+        //GameObject newCharacter = newForm.characterHolder.transform.GetChild(0).gameObject;
+        //pM.Animator = newForm.pM.Animator;
 
-        Destroy(characterHolder.transform.GetChild(0).gameObject);
-        Instantiate(newCharacter, characterHolder.transform);
+        //Destroy(characterHolder.transform.GetChild(0).gameObject);
+        //Instantiate(newCharacter, characterHolder.transform);
+
+        switch(_triggerForm)
+        {
+            case eForms.BASE:
+                basicForm.SetActive(true);
+                smallForm.SetActive(false);
+                balloonForm.SetActive(false);
+                //pM.Animator.runtimeAnimatorController = basicForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
+                break;
+            case eForms.NAIN:
+                basicForm.SetActive(false);
+                smallForm.SetActive(true);
+                balloonForm.SetActive(false);
+                //pM.Animator.runtimeAnimatorController = smallForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
+                break;
+            case eForms.BALLOON:
+                basicForm.SetActive(false);
+                smallForm.SetActive(false);
+                balloonForm.SetActive(true);
+                break;
+        }
 
         CopyCatValue();
     }

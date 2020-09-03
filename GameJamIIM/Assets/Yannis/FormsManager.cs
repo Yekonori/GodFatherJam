@@ -12,6 +12,12 @@ public class FormsManager : MonoBehaviour
     [SerializeField] private GameObject balloonForm;
     [SerializeField] private GameObject nainForm;
 
+    [SerializeField] private Animator basicAnimator;
+    [SerializeField] private Animator bigAnimator;
+    [SerializeField] private Animator tallAnimator;
+    [SerializeField] private Animator balloonAnimator;
+    [SerializeField] private Animator nainAnimator;
+
     #endregion
 
     #region Singleton
@@ -67,6 +73,32 @@ public class FormsManager : MonoBehaviour
         return playerForm;
     }
 
+    public Animator GetAnimatorForm(eForms forms)
+    {
+        Animator playerForm = null;
+
+        switch (forms)
+        {
+            case eForms.BASE:
+                playerForm = basicAnimator;
+                break;
+            case eForms.BIG:
+                playerForm = bigAnimator;
+                break;
+            case eForms.TALL:
+                break;
+            case eForms.BALLOON:
+                break;
+            case eForms.NAIN:
+                playerForm = nainAnimator;
+                break;
+            default:
+                break;
+        }
+
+        return playerForm;
+    }
+
     public PlayerMovement GetMovementPlayer(eForms forms)
     {
         PlayerMovement playerMovement = null;
@@ -82,6 +114,7 @@ public class FormsManager : MonoBehaviour
             case eForms.TALL:
                 break;
             case eForms.BALLOON:
+                playerMovement = balloonForm.GetComponent<PlayerMovement>();
                 break;
             case eForms.NAIN:
                 playerMovement = nainForm.GetComponent<PlayerMovement>();
