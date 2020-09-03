@@ -9,6 +9,7 @@ public class FormsManager : MonoBehaviour
     [SerializeField] private GameObject basicForm;
     [SerializeField] private GameObject balloonForm;
     [SerializeField] private GameObject nainForm;
+    [SerializeField] private GameObject bigForm;
 
     #endregion
 
@@ -49,9 +50,13 @@ public class FormsManager : MonoBehaviour
                 playerForm = basicForm;
                 break;
             case eForms.BALLOON:
+                playerForm = balloonForm;
                 break;
             case eForms.NAIN:
                 playerForm = nainForm;
+                break;
+            case eForms.BIG:
+                playerForm = bigForm;
                 break;
             default:
                 break;
@@ -75,6 +80,9 @@ public class FormsManager : MonoBehaviour
             case eForms.NAIN:
                 playerMovement = nainForm.GetComponent<CapsuleCollider2D>();
                 break;
+            case eForms.BIG:
+                playerMovement = bigForm.GetComponent<CapsuleCollider2D>();
+                break;
             default:
                 break;
         }
@@ -97,6 +105,9 @@ public class FormsManager : MonoBehaviour
             case eForms.NAIN:
                 playerMovement = nainForm.GetComponent<Rigidbody2D>();
                 break;
+            case eForms.BIG:
+                playerMovement = bigForm.GetComponent<Rigidbody2D>();
+                break;
             default:
                 break;
         }
@@ -118,6 +129,9 @@ public class FormsManager : MonoBehaviour
                 break;
             case eForms.NAIN:
                 playerMovement = nainForm.GetComponent<PlayerMovement>();
+                break;
+            case eForms.BIG:
+                playerMovement = bigForm.GetComponent<PlayerMovement>();
                 break;
             default:
                 break;
