@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 100f;
     [SerializeField] Vector2 direction;
     private bool facingRight = true;
+    private bool isMoving = false;
+    
 
     [Header("Vertical Movement")]
     [SerializeField] float jumpSpeed = 15f;
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float hangTime = 0.2f;
     private float hangCounter;
     private float jumpTimer;
+    private bool isJump = false;
 
     [Header("Collision")]
     [SerializeField] public bool onGround = false;
@@ -47,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region Unity Methods
+    #region Start Update
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +60,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(direction.x != 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
         JumpCheck();
 
         if ((jumpTimer > Time.time && onGround) || (hangCounter > 0 && Input.GetButtonDown("Jump")))
@@ -70,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
     {
         modifyPhysics();
     }
+    #endregion
 
     void Run(float horizontal)
     {
@@ -92,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("isRunning", false);
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         //Speed Check
@@ -108,10 +122,12 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.y != 0)
         {
             animator.SetBool("isJumping", true);
-        }
+            isJump = true;
+}
         else
         {
             animator.SetBool("isJumping", false);
+            isJump = false;
         }
 
         //Coyote Time
@@ -147,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
         hangCounter = 0;
         //Squeeze animation 
         //StartCoroutine(JumpSqueeze(0.3f, 1f, 0.1f));
-        animator.SetBool("isJumping", true);
+        //animator.SetBool("isJumping", true);
     }
 
     #endregion
@@ -158,18 +174,40 @@ public class PlayerMovement : MonoBehaviour
     {
         bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
 
+        if (changingDirections)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
         //No Jump
         if (onGround)
         {
-            if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
+            if (!isMoving)
             {
-                rb.drag = linearDrag;
+                if (!isJump)
+                {
+                    rb.drag = 0;
+                }
+                else
+                {
+                    rb.drag = linearDrag;
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }
             }
+                
             else
             {
                 rb.drag = 0f;
             }
-            rb.gravityScale = 0;
+            //if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
+            //{
+            //    rb.drag = linearDrag;
+            //}
+            //else
+            //{
+            //    rb.drag = 0f;
+            //}
+            //rb.gravityScale = 0;
+            
         }
         //Jump or falling
         else
