@@ -161,6 +161,11 @@ public class PlayerMovement : MonoBehaviour
         if (onGround)
         {
             hangCounter = hangTime;
+            foreach (Animator anim in animator)
+            {
+                anim.SetBool("isJumping", false);
+            }
+            isJump = false;
         }
         else
         {
