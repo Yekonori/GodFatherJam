@@ -84,11 +84,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243569c3c5648f840ae7234afbf34cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 20
+  maxSpeed: 7
   linearDrag: 15
   gravity: 1
   fallMultiplier: 14
-  moveSpeed: 15
+  moveSpeed: 10
   direction: {x: 0, y: 0}
   jumpSpeed: 20
   jumpDelay: 0.25
