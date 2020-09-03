@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimer;
 
     [Header("Collision")]
-    [SerializeField] bool onGround = false;
+    [SerializeField] public bool onGround = false;
     [SerializeField] float groundLength = 1f;
     [SerializeField] Vector3 colliderOffset;
     #endregion
