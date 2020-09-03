@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         JumpCheck();
 
-        if (jumpTimer > Time.time && hangCounter > 0)
+        if ((jumpTimer > Time.time && onGround) || (hangCounter > 0 && Input.GetButtonDown("Jump")))
         {
             Jump();
         }
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         onGround = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, Vector2.down, groundLength, groundLayer);
 
         //Jumping Animation
-        if (rb.velocity.y != 0 && !onGround)
+        if (rb.velocity.y != 0)
         {
             animator.SetBool("isJumping", true);
         }
@@ -125,11 +125,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Land animation
-        if (!wasOnGround && onGround && hangCounter <= 0)
-        {
-            StartCoroutine(JumpSqueeze(1f, 0.3f, 0.05f));
+        //if (!wasOnGround && onGround)
+        //{
+        //    StartCoroutine(JumpSqueeze(1f, 0.3f, 0.05f));
 
-        }
+        //}
 
         // Jump Delay after Input
         if (Input.GetButtonDown("Jump"))
@@ -144,9 +144,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, 0 + jumpSpeed);
         jumpTimer = 0;
-
+        hangCounter = 0;
         //Squeeze animation 
-        StartCoroutine(JumpSqueeze(0.3f, 1f, 0.1f));
+        //StartCoroutine(JumpSqueeze(0.3f, 1f, 0.1f));
         animator.SetBool("isJumping", true);
     }
 
@@ -175,21 +175,16 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.gravityScale = gravity;
-            if(rb.velocity.y < 0 && !onGround && !animator.GetBool("isJumping"))
+            rb.drag = linearDrag * 0.015f;
+            if (rb.velocity.y < 0)
             {
                 rb.gravityScale = gravity * fallMultiplier;
-            }
-            else if (rb.velocity.y < 0)
-            {
-                rb.gravityScale = gravity * fallMultiplier;
-                rb.drag = linearDrag * 0.015f;
 
             }
             //Replace GetButtonDown by GetButton for Higher Jump if press down 
             else if (rb.velocity.y > 0 && !Input.GetButtonDown("Jump"))
             {
                 rb.gravityScale = gravity * (fallMultiplier / 2);
-                rb.drag = linearDrag * 0.015f;
             }
         }
 
