@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         onGround = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) - colliderOffset, Vector2.down, groundLength, groundLayer);
 
         //Jumping Animation
-        if (rb.velocity.y != 0 && !onGround)
+        if (rb.velocity.y != 0)
         {
             animator.SetBool("isJumping", true);
         }
@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Land animation
-        if (!wasOnGround && onGround && hangCounter <= 0)
+        if (!wasOnGround && onGround)
         {
             StartCoroutine(JumpSqueeze(1f, 0.3f, 0.05f));
 
@@ -170,21 +170,16 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.gravityScale = gravity;
-            if(rb.velocity.y < 0 && !onGround && !animator.GetBool("isJumping"))
+            rb.drag = linearDrag * 0.015f;
+            if (rb.velocity.y < 0)
             {
                 rb.gravityScale = gravity * fallMultiplier;
-            }
-            else if (rb.velocity.y < 0)
-            {
-                rb.gravityScale = gravity * fallMultiplier;
-                rb.drag = linearDrag * 0.015f;
 
             }
             //Replace GetButtonDown by GetButton for Higher Jump if press down 
             else if (rb.velocity.y > 0 && !Input.GetButtonDown("Jump"))
             {
                 rb.gravityScale = gravity * (fallMultiplier / 2);
-                rb.drag = linearDrag * 0.015f;
             }
         }
 
