@@ -53,6 +53,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   jumpSpeed: 5
   jumpDelay: 0.25
+  hangTime: 0.2
   onGround: 1
   groundLength: 1
   colliderOffset: {x: 0, y: 0, z: 0}
@@ -76,7 +77,7 @@ MonoBehaviour:
   characterHolder: {fileID: 8616070218395980965}
   pM: {fileID: 8616070218094720957}
   _isTrigger: 0
-  _triggerForm: 0
+  _triggerForm: 1
 --- !u!1 &8616070218395980965
 GameObject:
   m_ObjectHideFlags: 0
