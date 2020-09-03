@@ -75,7 +75,7 @@ public class PlayerChangeForm : MonoBehaviour
     {
         NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
-        if (otherNPC != null)
+        if (otherNPC != null && otherNPC.GetForm() == currentForm)
         {
             _isTrigger = false;
         }
