@@ -58,6 +58,7 @@ public class FormsManager : MonoBehaviour
             case eForms.BALLOON:
                 break;
             case eForms.NAIN:
+                playerForm = nainForm;
                 break;
             default:
                 break;
@@ -83,6 +84,7 @@ public class FormsManager : MonoBehaviour
             case eForms.BALLOON:
                 break;
             case eForms.NAIN:
+                playerMovement = nainForm.GetComponent<PlayerMovement>();
                 break;
             default:
                 break;
