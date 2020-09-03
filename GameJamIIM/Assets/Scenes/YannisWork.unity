@@ -468,12 +468,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &163769536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3639578033002798601, guid: cde2d7aa76ecb1347abd7b4043e0ab60,
-    type: 3}
-  m_PrefabInstance: {fileID: 4976493836033137483}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &197368908
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHolder: {fileID: 0}
   pM: {fileID: 0}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
@@ -852,6 +845,34 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1318742625}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &583607502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583607499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243569c3c5648f840ae7234afbf34cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 7
+  linearDrag: 15
+  gravity: 1
+  fallMultiplier: 14
+  moveSpeed: 10
+  direction: {x: 0, y: 0}
+  jumpSpeed: 20
+  jumpDelay: 0.25
+  onGround: 1
+  groundLength: 1
+  colliderOffset: {x: 0, y: 0, z: 0}
+  animator: []
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  characterHolder: {fileID: 8616070218784315098}
 --- !u!1 &690672027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,11 +1032,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallPlayer (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5174405491739858504, guid: 97f14f81be5f3b549ac3ec4c5af2e3f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5174405491739858508, guid: 97f14f81be5f3b549ac3ec4c5af2e3f7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1071,11 +1087,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5174405491739858509, guid: 97f14f81be5f3b549ac3ec4c5af2e3f7,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 847738690}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97f14f81be5f3b549ac3ec4c5af2e3f7, type: 3}
 --- !u!1 &847738689 stripped
@@ -1084,12 +1095,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 847738688}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &847738690 stripped
+--- !u!95 &847738690
 Animator:
-  m_CorrespondingSourceObject: {fileID: 6718087798816510843, guid: 97f14f81be5f3b549ac3ec4c5af2e3f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 847738688}
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847738689}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2268c84fb3ec40c46a2768d0a132cfd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &847738691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5174405491739858508, guid: 97f14f81be5f3b549ac3ec4c5af2e3f7,
@@ -1235,7 +1259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHolder: {fileID: 0}
   pM: {fileID: 0}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
@@ -1426,7 +1449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHolder: {fileID: 163769536}
   pM: {fileID: 1238318640}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
@@ -1589,11 +1611,10 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   jumpSpeed: 10
   jumpDelay: 0.25
-  hangTime: 0.2
   onGround: 1
   groundLength: 0.6
   colliderOffset: {x: 0, y: 0, z: 0}
-  animator: {fileID: 197368911}
+  animator: []
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1646,7 +1667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHolder: {fileID: 0}
   pM: {fileID: 1355627977}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
@@ -2255,7 +2275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnPoint: {x: 0, y: 0, z: 0}
-  deathTime: 1
 --- !u!1001 &7781977016994186221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2337,7 +2356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60605cb656f6d048af254635361679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHolder: {fileID: 8616070218784315098}
   pM: {fileID: 8616070219019662786}
   basicForm: {fileID: 583607499}
   smallForm: {fileID: 847738689}
@@ -2395,11 +2413,12 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   jumpSpeed: 20
   jumpDelay: 0.25
-  hangTime: 0.1
   onGround: 1
   groundLength: 1
   colliderOffset: {x: 0, y: 0, z: 0}
-  animator: {fileID: 583607501}
+  animator:
+  - {fileID: 583607501}
+  - {fileID: 847738690}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256

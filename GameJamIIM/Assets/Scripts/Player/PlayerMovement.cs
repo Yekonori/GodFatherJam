@@ -34,12 +34,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Components")]
     Rigidbody2D rb;
     CapsuleCollider2D playerCollider;
-    [SerializeField] Animator animator;
-    public Animator Animator
-    {
-        get { return animator; }
-        set { animator = value; }
-    }
+    [SerializeField] List<Animator> animator;
+    //public Animator Animator
+    //{
+    //    get { return animator; }
+    //    set { animator = value; }
+    //}
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject characterHolder;
     #endregion
@@ -87,15 +87,24 @@ public class PlayerMovement : MonoBehaviour
         // Run animation
         if (direction.x != 0)
         {
-            animator.SetBool("isRunning", true);
+            foreach (Animator anim in animator)
+            {
+                anim.SetBool("isRunning", true);
+            }
         }
         else
         {
-            animator.SetBool("isRunning", false);
+            foreach (Animator anim in animator)
+            {
+                anim.SetBool("isRunning", false);
+            }
         }
 
         //Speed Check
-        animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
+        foreach (Animator anim in animator)
+        {
+            anim.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
+        }
     }
 
     #region Jump
@@ -117,7 +126,10 @@ public class PlayerMovement : MonoBehaviour
             jumpTimer = Time.time + jumpDelay;
         }
 
-        animator.SetBool("onGround", onGround);
+        foreach (Animator anim in animator)
+        {
+            anim.SetBool("onGround", onGround);
+        }
     }
 
     void Jump()
@@ -204,10 +216,17 @@ public class PlayerMovement : MonoBehaviour
     {
         //animator.SetBool("PreJumping", true);
         //yield return null;
-        animator.SetBool("isJumping", true);
+        foreach (Animator anim in animator)
+        {
+            anim.SetBool("isJumping", true);
+        }
         yield return null;
         //animator.SetBool("LandJumping", true);
-        animator.SetBool("isJumping", false);
+        //animator.SetBool("isJumping", false);
+        foreach (Animator anim in animator)
+        {
+            anim.SetBool("isJumping", false);
+        }
     }
 
 
