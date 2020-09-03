@@ -7,8 +7,6 @@ public class FormsManager : MonoBehaviour
     #region Script Parameters
 
     [SerializeField] private GameObject basicForm;
-    [SerializeField] private GameObject bigForm;
-    [SerializeField] private GameObject tallForm;
     [SerializeField] private GameObject balloonForm;
     [SerializeField] private GameObject nainForm;
 
@@ -50,11 +48,6 @@ public class FormsManager : MonoBehaviour
             case eForms.BASE:
                 playerForm = basicForm;
                 break;
-            case eForms.BIG:
-                playerForm = bigForm;
-                break;
-            case eForms.TALL:
-                break;
             case eForms.BALLOON:
                 break;
             case eForms.NAIN:
@@ -67,6 +60,50 @@ public class FormsManager : MonoBehaviour
         return playerForm;
     }
 
+    public CapsuleCollider2D GetCapsuleForm(eForms forms)
+    {
+        CapsuleCollider2D playerMovement = null;
+
+        switch (forms)
+        {
+            case eForms.BASE:
+                playerMovement = basicForm.GetComponent<CapsuleCollider2D>();
+                break;
+            case eForms.BALLOON:
+                playerMovement = balloonForm.GetComponent<CapsuleCollider2D>();
+                break;
+            case eForms.NAIN:
+                playerMovement = nainForm.GetComponent<CapsuleCollider2D>();
+                break;
+            default:
+                break;
+        }
+
+        return playerMovement;
+    }
+
+    public Rigidbody2D GetRBForm(eForms forms)
+    {
+        Rigidbody2D playerMovement = null;
+
+        switch (forms)
+        {
+            case eForms.BASE:
+                playerMovement = basicForm.GetComponent<Rigidbody2D>();
+                break;
+            case eForms.BALLOON:
+                playerMovement = balloonForm.GetComponent<Rigidbody2D>();
+                break;
+            case eForms.NAIN:
+                playerMovement = nainForm.GetComponent<Rigidbody2D>();
+                break;
+            default:
+                break;
+        }
+
+        return playerMovement;
+    }
+
     public PlayerMovement GetMovementPlayer(eForms forms)
     {
         PlayerMovement playerMovement = null;
@@ -76,12 +113,8 @@ public class FormsManager : MonoBehaviour
             case eForms.BASE:
                 playerMovement = basicForm.GetComponent<PlayerMovement>();
                 break;
-            case eForms.BIG:
-                playerMovement = bigForm.GetComponent<PlayerMovement>();
-                break;
-            case eForms.TALL:
-                break;
             case eForms.BALLOON:
+                playerMovement = balloonForm.GetComponent<PlayerMovement>();
                 break;
             case eForms.NAIN:
                 playerMovement = nainForm.GetComponent<PlayerMovement>();
