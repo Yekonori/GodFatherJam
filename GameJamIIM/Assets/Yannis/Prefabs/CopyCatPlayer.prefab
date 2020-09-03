@@ -89,6 +89,8 @@ MonoBehaviour:
   linearDrag: 15
   gravity: 1
   fallMultiplier: 14
+  glissValue: 0.1
+  pcf: {fileID: 6721403636442532104}
   moveSpeed: 10
   direction: {x: 0, y: 0}
   jumpSpeed: 20

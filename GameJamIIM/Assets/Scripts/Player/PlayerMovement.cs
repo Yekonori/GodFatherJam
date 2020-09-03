@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float linearDrag = 10f;
     [SerializeField] float gravity = 1f;
     [SerializeField] float fallMultiplier = 5f;
-    [SerializeField] float glissValue = 0.1f
+    [SerializeField] float glissValue = 0.1f;
+    [SerializeField] PlayerChangeForm pcf;
 
     [Header("Horizontal Movement")]
     [SerializeField] float moveSpeed = 100f;
