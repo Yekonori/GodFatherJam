@@ -35,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     CapsuleCollider2D playerCollider;
     [SerializeField] Animator animator;
+    public Animator Animator
+    {
+        get { return animator; }
+        set { animator = value; }
+    }
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject characterHolder;
     #endregion
