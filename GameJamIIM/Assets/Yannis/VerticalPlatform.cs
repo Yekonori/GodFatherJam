@@ -15,6 +15,7 @@ public class VerticalPlatform : MonoBehaviour
     [SerializeField] private bool loopPath;
     [SerializeField] private bool uniquePath;
     [SerializeField] private bool isAutomatique;
+    [SerializeField] private AudioSource audio;
 
     #endregion
 
@@ -112,6 +113,12 @@ public class VerticalPlatform : MonoBehaviour
 
     private void MovePlatform()
     {
+        if (!audio.isPlaying)
+        {
+            Debug.Log("Play Sound");
+            audio.Play();
+        }
+
         Vector3 heading = _targetPoint - transform.position;
         transform.Translate((heading / heading.magnitude) * platformSpeed * Time.fixedDeltaTime);
 
