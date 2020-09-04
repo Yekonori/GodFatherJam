@@ -1,40 +1,19 @@
 fileFormatVersion: 2
-guid: dd4d3244b71a92a4da67dd0f61e1686d
+guid: 3f0c3f7ab3558d74695523732d7eaffb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6723963429988506304
-    second: Spikes_0
+      213: 2288022092507404685
+    second: Lianes_0
   - first:
-      213: -7010832575621253078
-    second: Spikes_1
+      213: -6024379136783527127
+    second: Lianes_1
   - first:
-      213: 8562923692314260799
-    second: Spikes_2
+      213: 907003558223058566
+    second: Lianes_2
   - first:
-      213: -4810244237682102619
-    second: Spikes_3
-  - first:
-      213: -3644641957871353732
-    second: Spikes_4
-  - first:
-      213: 7573331673453511767
-    second: Spikes_5
-  - first:
-      213: -138403667897052782
-    second: Spikes_6
-  - first:
-      213: 3455471295796217898
-    second: Spikes_7
-  - first:
-      213: 4610756642254351337
-    second: Spikes_0
-  - first:
-      213: -2467941731868490469
-    second: Spikes_1
-  - first:
-      213: 5033278557467515617
-    second: Spikes_2
+      213: 3284784481408551191
+    second: Lianes_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -120,64 +99,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spikes_0
+      name: Lianes_0
       rect:
         serializedVersion: 2
-        x: 74
-        y: 23
-        width: 174
-        height: 978
+        x: 114
+        y: 538
+        width: 37
+        height: 1481
       alignment: 9
-      pivot: {x: 0.5065291, y: 0.002819826}
+      pivot: {x: 0.3142061, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ebe75fbcb2bcff30800000000000000
-      internalID: 4610756642254351337
+      spriteID: d89562e78ffa0cf10800000000000000
+      internalID: 2288022092507404685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_1
+      name: Lianes_1
       rect:
         serializedVersion: 2
-        x: 418
-        y: 31
-        width: 164
-        height: 963
+        x: 277
+        y: 1416
+        width: 40
+        height: 603
       alignment: 9
-      pivot: {x: 0.5, y: 0.004513369}
+      pivot: {x: 0.49999848, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b15cd91121c10cdd0800000000000000
-      internalID: -2467941731868490469
+      spriteID: 9235eb7f71b156ca0800000000000000
+      internalID: -6024379136783527127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_2
+      name: Lianes_2
       rect:
         serializedVersion: 2
-        x: 784
-        y: 41
-        width: 152
-        height: 919
+        x: 420
+        y: 1182
+        width: 60
+        height: 837
       alignment: 9
-      pivot: {x: 0.4775772, y: 0.0030422523}
+      pivot: {x: 0.5763809, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ea11793e2cc9d540800000000000000
-      internalID: 5033278557467515617
+      spriteID: 68696e14ee2569c00800000000000000
+      internalID: 907003558223058566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lianes_3
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1637
+        width: 73
+        height: 382
+      alignment: 9
+      pivot: {x: 0.46861038, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71982121516e59d20800000000000000
+      internalID: 3284784481408551191
       vertices: []
       indices: 
       edges: []
@@ -185,7 +185,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 88cb6931199c6fa4c9754d43b8cef9ee
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
