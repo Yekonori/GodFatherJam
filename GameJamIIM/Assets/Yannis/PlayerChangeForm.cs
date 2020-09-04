@@ -41,12 +41,9 @@ public class PlayerChangeForm : MonoBehaviour
 
     private void Start()
     {
-        basicForm.SetActive(true);
-        smallForm.SetActive(false);
-        balloonForm.SetActive(false);
-        bigForm.SetActive(false);
-
         currentForm = eForms.BASE;
+
+        CopycatForm();
     }
 
     private void Update()

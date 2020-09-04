@@ -47,8 +47,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a5b3cc4da55e948840e876206dcd6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueSprite: {fileID: 6550705845014938674, guid: af766514073718945ae81097680b6a27,
-    type: 3}
+  narciNPC:
+  - {fileID: 21300000, guid: b7e0a24427fd0704bbeec41200a10989, type: 3}
+  - {fileID: 21300000, guid: 850e9c5985d9a3640ad6dc03f55c8ac2, type: 3}
+  - {fileID: 21300000, guid: a023cbf80abe8994fbdcc89324ace409, type: 3}
+  badBasic:
+  - {fileID: 21300000, guid: 111be4e9e390a234895d4d8f6636fbdd, type: 3}
+  - {fileID: 21300000, guid: 72ef1d1c9ed7f6d459ec8c4844980198, type: 3}
+  - {fileID: 21300000, guid: 64c583522e71c0f4aa11262663aea350, type: 3}
+  - {fileID: 21300000, guid: c3d33ad68e65cb849906ad59cdfbf673, type: 3}
+  badSmall:
+  - {fileID: 21300000, guid: e8210121dd054d2488f0efd25b853b6a, type: 3}
+  - {fileID: 21300000, guid: d176a56ad88d48d4bbca92fc4fc4e377, type: 3}
+  - {fileID: 21300000, guid: 585923ace9223644189daa32ef571d5a, type: 3}
+  - {fileID: 21300000, guid: fc83f92fcea5d4741b73de1a3ecfdc72, type: 3}
+  - {fileID: 21300000, guid: 767145be4bd384e4eaef4cac54cef711, type: 3}
+  badBig:
+  - {fileID: 21300000, guid: cd78b0e06fe162349a01e5d9f170d4e3, type: 3}
+  - {fileID: 21300000, guid: d9e48f2dcf81fc847b34b0b97de7ef2e, type: 3}
+  - {fileID: 21300000, guid: ed02c4b1413a3844f93865dbc0a96f11, type: 3}
+  - {fileID: 21300000, guid: fd2eae66a8779424c980579397698c05, type: 3}
+  badBalloon:
+  - {fileID: 21300000, guid: 4562e64aa78435d4988d7074dc244d38, type: 3}
+  - {fileID: 21300000, guid: 6a2636fff96b4ee45849fada2c1be40e, type: 3}
+  - {fileID: 21300000, guid: d47251344d252ae4cb6021ecb970bb25, type: 3}
   dialogue: {fileID: 2762734812994455814}
 --- !u!61 &2762734812299324700
 BoxCollider2D:
@@ -113,9 +135,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2762734812994455814}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.8499999, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6, y: 1.75, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 2762734812299324698}
   m_RootOrder: 1
@@ -164,7 +186,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.628968, y: 3.401}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
