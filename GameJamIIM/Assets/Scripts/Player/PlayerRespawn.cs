@@ -30,18 +30,13 @@ public class PlayerRespawn : MonoBehaviour
             RespawnPoint = collision.transform.position;
             Destroy(collision.gameObject.GetComponent<BoxCollider2D>());
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "death") 
+
+        if (collision.gameObject.tag == "death")
         {
             //Debug.Log("Before Coroutine");
             LauchRevive();
             //Debug.Log("AfterCoroutine");
-
         }
-
-
     }
     IEnumerator Revive()
     {
