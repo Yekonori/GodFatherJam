@@ -14,7 +14,7 @@ public class isUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow) && player.GetComponent<PlayerMovement>().onGround){
+        if(Input.GetAxisRaw("Vertical") < 0 && player.GetComponent<PlayerMovement>().onGround){
             transform.parent.GetComponent<Collider2D>().enabled = false;
         }
     }

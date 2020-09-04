@@ -11,6 +11,12 @@ public class PlayerChangeForm : MonoBehaviour
     [SerializeField] private CapsuleCollider2D cc2D;
     [SerializeField] private Rigidbody2D rb2D;
 
+    private eForms currentForm;
+    public eForms CurrentForm
+    {
+        get { return currentForm; }
+    }
+
     /**
      * Normal & Gros : 2 mass
      * Nain & Balloon : 1 mass
@@ -20,6 +26,7 @@ public class PlayerChangeForm : MonoBehaviour
     [SerializeField] private GameObject basicForm;
     [SerializeField] private GameObject smallForm;
     [SerializeField] private GameObject balloonForm;
+    [SerializeField] private GameObject bigForm;
 
     #endregion
 
@@ -37,9 +44,12 @@ public class PlayerChangeForm : MonoBehaviour
         basicForm.SetActive(true);
         smallForm.SetActive(false);
         balloonForm.SetActive(false);
+        bigForm.SetActive(false);
+
+        currentForm = eForms.BASE;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -65,7 +75,7 @@ public class PlayerChangeForm : MonoBehaviour
     {
         NPCForms otherNPC = collision.GetComponent<NPCForms>();
 
-        if (otherNPC != null)
+        if (otherNPC != null && otherNPC.GetForm() == currentForm)
         {
             _isTrigger = false;
         }
@@ -89,18 +99,29 @@ public class PlayerChangeForm : MonoBehaviour
                 basicForm.SetActive(true);
                 smallForm.SetActive(false);
                 balloonForm.SetActive(false);
-                //pM.Animator.runtimeAnimatorController = basicForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
+                bigForm.SetActive(false);
+                currentForm = eForms.BASE;
                 break;
             case eForms.NAIN:
                 basicForm.SetActive(false);
                 smallForm.SetActive(true);
                 balloonForm.SetActive(false);
-                //pM.Animator.runtimeAnimatorController = smallForm.GetComponent<PlayerMovement>().Animator.runtimeAnimatorController;
+                bigForm.SetActive(false);
+                currentForm = eForms.NAIN;
                 break;
             case eForms.BALLOON:
                 basicForm.SetActive(false);
                 smallForm.SetActive(false);
                 balloonForm.SetActive(true);
+                bigForm.SetActive(false);
+                currentForm = eForms.BALLOON;
+                break;
+            case eForms.BIG:
+                basicForm.SetActive(false);
+                smallForm.SetActive(false);
+                balloonForm.SetActive(false);
+                bigForm.SetActive(true);
+                currentForm = eForms.BIG;
                 break;
         }
 
@@ -142,6 +163,9 @@ public class PlayerChangeForm : MonoBehaviour
                 break;
             case eForms.BALLOON:
                 rb2D.mass = 1;
+                break;
+            case eForms.BIG:
+                rb2D.mass = 4;
                 break;
         }
     }

@@ -50,11 +50,14 @@ MonoBehaviour:
   maxSpeed: 13
   linearDrag: 20
   gravity: 1
-  fallMultiplier: 10
+  fallMultiplier: 9
+  glissValue: 0.1
+  pcf: {fileID: 0}
   moveSpeed: 10
   direction: {x: 0, y: 0}
-  jumpSpeed: 12.5
+  jumpSpeed: 13
   jumpDelay: 0.25
+  hangTime: 0.1
   onGround: 1
   groundLength: 1
   colliderOffset: {x: 0, y: 0, z: 0}
@@ -78,9 +81,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pM: {fileID: 5174405491739858509}
   cc2D: {fileID: 0}
+  rb2D: {fileID: 0}
   basicForm: {fileID: 0}
   smallForm: {fileID: 0}
   balloonForm: {fileID: 0}
+  bigForm: {fileID: 0}
   _isTrigger: 0
   _triggerForm: 4
 --- !u!95 &847738690
