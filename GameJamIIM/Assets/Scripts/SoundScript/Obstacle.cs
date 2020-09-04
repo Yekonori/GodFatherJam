@@ -26,17 +26,16 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-       
-
         if (collision.gameObject.tag == "Player")
         {
             if (collision.gameObject.GetComponent<Rigidbody2D>().mass > MassCheck)
             {
                 IsPushed = true;
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-             
+                //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rb.constraints = RigidbodyConstraints2D.None;
+
             }
             else
             {
@@ -45,9 +44,10 @@ public class Obstacle : MonoBehaviour
             }
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") 
+        if (collision.gameObject.tag == "Player")
         {
             IsPushed = false;
             rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
