@@ -96,10 +96,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.006180674, y: 0.063138485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.93883055, y: 0.55273676}
   m_EdgeRadius: 0
 --- !u!50 &2084318689028015076
 Rigidbody2D:
@@ -156,12 +156,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4513857238569071079}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d036c31a57cdb7447bb0ca42b38dd310, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -428,12 +428,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7965449074561987968}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e7cc5def05351954e8c0cbf0ee1135fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -751,6 +751,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8995552682245736964}
     m_Modifications:
+    - target: {fileID: 94433101, guid: 6cdf27d45ede04142a0f0ddf74174a7e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.033088863
+      objectReference: {fileID: 0}
+    - target: {fileID: 94433101, guid: 6cdf27d45ede04142a0f0ddf74174a7e, type: 3}
+      propertyPath: m_Size.y
+      value: 0.45587218
+      objectReference: {fileID: 0}
+    - target: {fileID: 94433101, guid: 6cdf27d45ede04142a0f0ddf74174a7e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4729865705978841165, guid: 6cdf27d45ede04142a0f0ddf74174a7e,
         type: 3}
       propertyPath: m_IsActive
