@@ -50,7 +50,7 @@ MonoBehaviour:
   maxSpeed: 3
   linearDrag: 20
   gravity: 1
-  fallMultiplier: 12
+  fallMultiplier: 11
   glissValue: 0.1
   pcf: {fileID: 0}
   moveSpeed: 10
