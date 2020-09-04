@@ -340,6 +340,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 6232870265343575948, guid: c02053c41b3f73c4ba5595bf255af239,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0067175627
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232870265343575948, guid: c02053c41b3f73c4ba5595bf255af239,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9203961
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c02053c41b3f73c4ba5595bf255af239, type: 3}
 --- !u!4 &8499744312869179539 stripped
