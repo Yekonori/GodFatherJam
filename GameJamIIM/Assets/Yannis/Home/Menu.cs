@@ -51,27 +51,27 @@ public class Menu : MonoBehaviour
     private void SetButtons()
     {
         playButton.onClick.AddListener(PlayClick);
-        creditsButton.onClick.AddListener(CreditClick);
-        backButton.onClick.AddListener(BackClick);
+        //creditsButton.onClick.AddListener(CreditClick);
+        //backButton.onClick.AddListener(BackClick);
         quitButton.onClick.AddListener(QuitClick);
     }
 
-    private void PlayClick()
+    public void PlayClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void CreditClick()
+    public void CreditClick()
     {
         ActiveCreditsMenu();
     }
 
-    private void BackClick()
+    public void BackClick()
     {
         ActiveMainMenu();
     }
 
-    private void QuitClick()
+    public void QuitClick()
     {
         Application.Quit();
     }
