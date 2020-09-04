@@ -120,8 +120,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006717682, y: 1.0675693}
-  m_Size: {x: 1.2926888, y: 2.1151385}
+  m_Offset: {x: 0.021915615, y: 1.0675693}
+  m_Size: {x: 0.97363126, y: 2.1151385}
   m_Direction: 0
 --- !u!1 &1274716721310966609
 GameObject:
