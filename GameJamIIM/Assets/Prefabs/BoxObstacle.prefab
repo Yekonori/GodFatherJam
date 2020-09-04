@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MassCheck: 1
+  isBox: 1
 --- !u!82 &1665740225111954197
 AudioSource:
   m_ObjectHideFlags: 0
