@@ -40,7 +40,7 @@ public class Obstacle : MonoBehaviour
             else
             {
                 IsPushed = false;
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             }
         }
     }
@@ -50,7 +50,7 @@ public class Obstacle : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             IsPushed = false;
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
