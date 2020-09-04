@@ -57,10 +57,13 @@ public class NPCDialogue : MonoBehaviour
 
             SpriteRenderer spriteRenderer = dialogue.GetComponent<SpriteRenderer>();
 
-            int rnd = Random.Range(0, dialogues.Count - 1);
-            spriteRenderer.sprite = dialogues[rnd];
+            if(dialogues.Count > 0)
+            {
+                int rnd = Random.Range(0, dialogues.Count - 1);
+                spriteRenderer.sprite = dialogues[rnd];
 
-            dialogue.SetActive(true);
+                dialogue.SetActive(true);
+            }
         }
     }
 
