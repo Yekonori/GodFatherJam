@@ -9,6 +9,7 @@ public class Obstacle : MonoBehaviour
     private float CooldownSound = 2;
     private Rigidbody2D rb;
     public float MassCheck;
+    public bool isBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +35,20 @@ public class Obstacle : MonoBehaviour
             {
                 IsPushed = true;
                 //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                rb.constraints = RigidbodyConstraints2D.None;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             }
             else
             {
                 IsPushed = false;
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                if (isBox)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                }
+                else
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                }
             }
         }
     }
@@ -50,7 +58,15 @@ public class Obstacle : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             IsPushed = false;
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+
+            if (isBox)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+            else
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            }
         }
     }
 
