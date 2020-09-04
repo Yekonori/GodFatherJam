@@ -8,6 +8,8 @@ TagManager:
   - death
   - Trigger
   - ascenseur
+  - obstacle
+  - deathzone
   layers:
   - Default
   - TransparentFX
