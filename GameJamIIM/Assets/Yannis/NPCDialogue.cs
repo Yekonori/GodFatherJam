@@ -13,8 +13,10 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] private List<Sprite> badBig;
     [SerializeField] private List<Sprite> badBalloon;
     [SerializeField] private GameObject dialogue;
+    [SerializeField] private bool multipleTalk;
 
     private int rndIndex;
+    private bool canTalk = true;
 
     #endregion
 
@@ -31,14 +33,32 @@ public class NPCDialogue : MonoBehaviour
         {
             eForms playerForm = collision.gameObject.GetComponent<PlayerChangeForm>().CurrentForm;
 
+            Talk(playerForm);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            dialogue.SetActive(false);
+        }
+    }
+
+    #endregion
+
+    private void Talk(eForms form)
+    {
+        if (canTalk && !multipleTalk || multipleTalk)
+        {
             List<Sprite> dialogues = new List<Sprite>();
 
-            switch (playerForm)
+            switch (form)
             {
-                //case eForms.BASE:
-                //    dialogues = narciNPC.Concat(badBasic).ToList();
-                //    Debug.Log("BASE");
-                //    break;
+                case eForms.BASE:
+                    dialogues = narciNPC.Concat(badBasic).ToList();
+                    Debug.Log("BASE");
+                    break;
                 case eForms.BIG:
                     dialogues = narciNPC.Concat(badBig).ToList();
                     Debug.Log("BIG");
@@ -64,16 +84,11 @@ public class NPCDialogue : MonoBehaviour
 
                 dialogue.SetActive(true);
             }
+
+            if (!multipleTalk)
+            {
+                canTalk = false;
+            }
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            dialogue.SetActive(false);
-        }
-    }
-
-    #endregion
 }
