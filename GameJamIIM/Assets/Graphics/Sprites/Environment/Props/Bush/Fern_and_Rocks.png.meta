@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 1edd454479314f54ebfa638505c73b3b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4485612305623076852
+    second: Fern_and_Rocks_0
+  - first:
+      213: 5608452016089671727
+    second: Fern_and_Rocks_1
+  - first:
+      213: 4705873484238921760
+    second: Fern_and_Rocks_2
+  - first:
+      213: 7145457380364431471
+    second: Fern_and_Rocks_3
+  - first:
+      213: 2300774345683152951
+    second: Fern_and_Rocks_4
+  - first:
+      213: 1314672808839627691
+    second: Fern_and_Rocks_5
+  - first:
+      213: 6077308904032845182
+    second: Fern_and_Rocks_6
+  - first:
+      213: -2545282042153447662
+    second: Fern_and_Rocks_7
+  - first:
+      213: 8668635085986447392
+    second: Fern_and_Rocks_0
+  - first:
+      213: -7451721091907414896
+    second: Fern_and_Rocks_1
+  - first:
+      213: 1303026068189735103
+    second: Fern_and_Rocks_2
+  - first:
+      213: -9184585419667158793
+    second: Fern_and_Rocks_3
+  - first:
+      213: 2702199305111023964
+    second: Fern_and_Rocks_4
+  - first:
+      213: -265722878087786803
+    second: Fern_and_Rocks_5
+  - first:
+      213: -3887356049846275955
+    second: Fern_and_Rocks_6
+  - first:
+      213: 715935154310596435
+    second: Fern_and_Rocks_7
+  - first:
+      213: -4959830335856596647
+    second: Fern_and_Rocks_8
+  - first:
+      213: 4336765913298755869
+    second: Fern_and_Rocks_9
+  - first:
+      213: -292826901622533921
+    second: Fern_and_Rocks_10
+  - first:
+      213: -2398785726286402374
+    second: Fern_and_Rocks_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fern_and_Rocks_0
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 638
+        width: 258
+        height: 127
+      alignment: 9
+      pivot: {x: 0.5046014, y: 0.041964795}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020c5bbaead2d4870800000000000000
+      internalID: 8668635085986447392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_1
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 648
+        width: 123
+        height: 62
+      alignment: 9
+      pivot: {x: 0.5, y: 0.04045745}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0949297d52b269890800000000000000
+      internalID: -7451721091907414896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_2
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 652
+        width: 157
+        height: 83
+      alignment: 9
+      pivot: {x: 0.50756174, y: 0.04230251}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb8e5872e47451210800000000000000
+      internalID: 1303026068189735103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_3
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 653
+        width: 88
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5000007, y: 0.07336712}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8c18b093cc98080800000000000000
+      internalID: -9184585419667158793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 64
+        height: 276
+      alignment: 9
+      pivot: {x: 0.7411412, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51337d73f3208520800000000000000
+      internalID: 2702199305111023964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_5
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 0
+        width: 72
+        height: 312
+      alignment: 9
+      pivot: {x: 0.28565323, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce02e24376ff4cf0800000000000000
+      internalID: -265722878087786803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_6
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 0
+        width: 43
+        height: 107
+      alignment: 9
+      pivot: {x: 0.27, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80727dc4465d0ac0800000000000000
+      internalID: -3887356049846275955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_7
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 154
+        height: 244
+      alignment: 9
+      pivot: {x: 0.09914349, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357c5eaca338fe900800000000000000
+      internalID: 715935154310596435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_8
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 88
+        height: 358
+      alignment: 9
+      pivot: {x: 0.7967869, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959af0d76942b2bb0800000000000000
+      internalID: -4959830335856596647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_9
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 0
+        width: 52
+        height: 149
+      alignment: 9
+      pivot: {x: 0.6826383, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11e138fe994f2c30800000000000000
+      internalID: 4336765913298755869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_10
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 0
+        width: 39
+        height: 281
+      alignment: 9
+      pivot: {x: 0.49999842, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd05c140c7bafebf0800000000000000
+      internalID: -292826901622533921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fern_and_Rocks_11
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 0
+        width: 112
+        height: 164
+      alignment: 9
+      pivot: {x: 0.839186, y: 0.00000013502952}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abceb6c571dc5bed0800000000000000
+      internalID: -2398785726286402374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a690c2177df9ce6469d0d9880c29ba03
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
