@@ -1,0 +1,94 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class NPCDialogue : MonoBehaviour
+{
+    #region Script Parameters
+
+    [SerializeField] private List<Sprite> narciNPC;
+    [SerializeField] private List<Sprite> badBasic;
+    [SerializeField] private List<Sprite> badSmall;
+    [SerializeField] private List<Sprite> badBig;
+    [SerializeField] private List<Sprite> badBalloon;
+    [SerializeField] private GameObject dialogue;
+    [SerializeField] private bool multipleTalk;
+
+    private int rndIndex;
+    private bool canTalk = true;
+
+    #endregion
+
+    #region Unity Methods
+
+    private void Start()
+    {
+        dialogue.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            eForms playerForm = collision.gameObject.GetComponent<PlayerChangeForm>().CurrentForm;
+
+            Talk(playerForm);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            dialogue.SetActive(false);
+        }
+    }
+
+    #endregion
+
+    private void Talk(eForms form)
+    {
+        if (canTalk && !multipleTalk || multipleTalk)
+        {
+            List<Sprite> dialogues = new List<Sprite>();
+
+            switch (form)
+            {
+                case eForms.BASE:
+                    dialogues = narciNPC.Concat(badBasic).ToList();
+                    Debug.Log("BASE");
+                    break;
+                case eForms.BIG:
+                    dialogues = narciNPC.Concat(badBig).ToList();
+                    Debug.Log("BIG");
+                    break;
+                case eForms.BALLOON:
+                    dialogues = narciNPC.Concat(badBalloon).ToList();
+                    Debug.Log("BALLOON");
+                    break;
+                case eForms.NAIN:
+                    dialogues = narciNPC.Concat(badSmall).ToList();
+                    Debug.Log("NAIN");
+                    break;
+                default:
+                    break;
+            }
+
+            SpriteRenderer spriteRenderer = dialogue.GetComponent<SpriteRenderer>();
+
+            if (dialogues.Count > 0)
+            {
+                int rnd = Random.Range(0, dialogues.Count - 1);
+                spriteRenderer.sprite = dialogues[rnd];
+
+                dialogue.SetActive(true);
+            }
+
+            if (!multipleTalk)
+            {
+                canTalk = false;
+            }
+        }
+    }
+}

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1474237463431066928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 1, z: 1}
   m_Children:
   - {fileID: 8840190044926565}
   - {fileID: 454619456950970495}
@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8840190044926565}
   - component: {fileID: 2240085773888383659}
+  - component: {fileID: 2346018421104043872}
   m_Layer: 0
   m_Name: Elevator_Creator
   m_TagString: Untagged
@@ -194,6 +195,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2346018421104043872
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4989769909832043753}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0045382977, y: 0.00080537796}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.25}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9183135, y: 0.25735664}
+  m_EdgeRadius: 0
 --- !u!1 &7503304156135890139
 GameObject:
   m_ObjectHideFlags: 0
