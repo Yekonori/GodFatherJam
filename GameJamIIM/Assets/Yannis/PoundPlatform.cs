@@ -5,6 +5,8 @@ public class PoundPlatform : MonoBehaviour
 {
     #region Script Parameters
 
+    [SerializeField] private Transform elevatorCreator;
+
     [Header("Points")]
     [SerializeField] private Transform points;
 
@@ -38,7 +40,7 @@ public class PoundPlatform : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position != _targetPoint)
+        if (elevatorCreator.position != _targetPoint)
         {
             MovePlatform();
         }
@@ -81,12 +83,12 @@ public class PoundPlatform : MonoBehaviour
             audio.Play();
         }
 
-        Vector3 heading = _targetPoint - transform.position;
-        transform.Translate((heading / heading.magnitude) * platformSpeed * Time.fixedDeltaTime);
+        Vector3 heading = _targetPoint - elevatorCreator.position;
+        elevatorCreator.Translate((heading / heading.magnitude) * platformSpeed * Time.fixedDeltaTime);
 
         if (heading.magnitude <= _tolerance)
         {
-            transform.position = _targetPoint;
+            elevatorCreator.position = _targetPoint;
         }
     }
 
