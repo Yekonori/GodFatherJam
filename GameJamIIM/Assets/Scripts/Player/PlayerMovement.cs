@@ -329,10 +329,12 @@ public class PlayerMovement : MonoBehaviour
         linearDrag = copycatPM.linearDrag;
         gravity = copycatPM.gravity;
         fallMultiplier = copycatPM.fallMultiplier;
+        glissValue = copycatPM.glissValue;
 
         moveSpeed = copycatPM.moveSpeed;
 
         jumpSpeed = copycatPM.jumpSpeed;
         jumpDelay = copycatPM.jumpDelay;
+        hangTime = copycatPM.hangTime;
     }
 }
